@@ -229,8 +229,9 @@ nnoremap ,J <C-w>J
 nnoremap ,K <C-w>K
 nnoremap ,L <C-w>L
 nnoremap ,H <C-w>H
-nnoremap ,e :<C-u>set columns=115<CR>
-nnoremap ,d :<C-u>set columns=100<CR>
+nnoremap ,w :<C-u>set lines=70<CR>
+nnoremap ,e :<C-u>set columns=135<CR>
+nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>
 "nnoremap ,<<C-w><
 "nnoremap ,><C-w>>

@@ -146,7 +146,7 @@ set hlsearch
 set smartindent
 set laststatus=2
 set wildmenu
-set lines=70 columns=110
+set lines=80 columns=110
 set ruler
 set history=1000
 set encoding=utf8
@@ -246,9 +246,9 @@ call plug#end()
 " VSCodeのテーマ
 let g:airline_theme = 'codedark'
 " powerlineを有効にする
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 " タブラインを表示する
-let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#enabled = 1
 " ステータスラインに表示する項目を変更する
 " 参考: https://original-game.com/vim-airline/
 let g:airline#extensions#default#layout = [
@@ -256,17 +256,17 @@ let g:airline#extensions#default#layout = [
   \ ['z']
   \ ]
 let g:airline_section_c = '%t %M'
-let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
-let g:airline#extensions#hunks#non_zero_only = 1 " 変更がなければdiffの行数を表示しない
-" タブラインの表示を変更する
-" 参考: https://www.reddit.com/r/vim/comments/crs61u/best_airline_settings/
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#show_tabs = 1
-let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#tabline#show_tab_type = 1
-let g:airline#extensions#tabline#show_close_button = 0
+"let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
+"let g:airline#extensions#hunks#non_zero_only = 1 " 変更がなければdiffの行数を表示しない
+"" タブラインの表示を変更する
+"" 参考: https://www.reddit.com/r/vim/comments/crs61u/best_airline_settings/
+"let g:airline#extensions#tabline#fnamemod = ':t'
+"let g:airline#extensions#tabline#show_buffers = 1
+"let g:airline#extensions#tabline#show_splits = 0
+"let g:airline#extensions#tabline#show_tabs = 1
+"let g:airline#extensions#tabline#show_tab_nr = 0
+"let g:airline#extensions#tabline#show_tab_type = 1
+"let g:airline#extensions#tabline#show_close_button = 0
 
 
 "" ferm.vim
@@ -399,7 +399,7 @@ nnoremap ,J <C-w>J
 nnoremap ,K <C-w>K
 nnoremap ,L <C-w>L
 nnoremap ,H <C-w>H
-nnoremap ,w :<C-u>set lines=70<CR>
+nnoremap ,w :<C-u>set lines=80<CR>
 nnoremap ,e :<C-u>set columns=135<CR>
 nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>

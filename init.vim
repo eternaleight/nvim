@@ -33,7 +33,7 @@ cnoremap init :<C-u>edit $MYVIMRC<CR>                           " init.vim呼び
 noremap <Space>s :source $MYVIMRC<CR>                           " init.vim読み込み
 noremap <Space>w :<C-u>w<CR>                                    " ファイル保存
 
-" Inert Mode
+" Inesert Mode
 inoremap <silent> jj <ESC>
 inoremap <S-Space> <Esc>
 

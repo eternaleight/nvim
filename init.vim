@@ -33,7 +33,7 @@ cnoremap init :<C-u>edit $MYVIMRC<CR>                           " init.vim呼び
 noremap <Space>s :source $MYVIMRC<CR>                           " init.vim読み込み
 noremap <Space>w :<C-u>w<CR>                                    " ファイル保存
 
-" Insert Mode
+" Inert Mode
 inoremap <silent> jj <ESC>
 inoremap <S-Space> <Esc>
 
@@ -238,6 +238,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 call plug#end()
 
 

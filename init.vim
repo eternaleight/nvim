@@ -2,11 +2,9 @@
 "-nvim config-"
 """""""""""""""
 
+
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
@@ -33,7 +31,7 @@ cnoremap init :<C-u>edit $MYVIMRC<CR>                           " init.vim呼び
 noremap <Space>s :source $MYVIMRC<CR>                           " init.vim読み込み
 noremap <Space>w :<C-u>w<CR>                                    " ファイル保存
 
-" Inesert Mode
+" Insert Mode
 inoremap <silent> jj <ESC>
 inoremap <S-Space> <Esc>
 
@@ -152,34 +150,6 @@ set history=1000
 set encoding=utf8
 syntax enable
 
-" PLUGIN SETTINGS
-call plug#begin('~/.config/nvim/plugged')
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
-
-" Or build from source code by using yarn: https://yarnpkg.com
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
-Plug 'cohama/lexima.vim'
-
-"matrix"
-Plug 'uguu-org/vim-matrix-screensaver'
-
-"c/c++ コンパイラ
-Plug 'justmao945/vim-clang'
-
-"カラーテーマ　ネブカドネザル"
-Plug 'azumakuniyuki/vim-colorschemes'
-
-"c# plugin"
-Plug 'OmniSharp/omnisharp-vim'
-
-call plug#end()
-
 
 """"""""
 "-2022-"
@@ -206,16 +176,17 @@ nnoremap tn :tabn<CR>
 " タブを閉じる
 nnoremap tx :tabclose<CR>
 
+""""""""""
+""Plugin""
+""""""""""
 
-"" plugin
-call plug#begin()
+call plug#begin('~/.config/nvim/plugged')
 
 "" vim-airline
 " ステータスラインを表示する
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
-
 "" fern.vim
 Plug 'lambdalisue/fern.vim'
 " diffを表示する
@@ -237,10 +208,39 @@ Plug 'tpope/vim-rhubarb'
 "" fzf
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" PLUGIN SETTINGS
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'tpope/vim-commentary'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
+
+" Or build from source code by using yarn: https://yarnpkg.com
+Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
+Plug 'cohama/lexima.vim'
+
+"matrix"
+Plug 'uguu-org/vim-matrix-screensaver'
+
+"c/c++ コンパイラ
+Plug 'justmao945/vim-clang'
+
+"カラーテーマ　ネブカドネザル"
+"Plug 'azumakuniyuki/vim-colorschemes'
+
+"c# plugin"
+Plug 'OmniSharp/omnisharp-vim'
+
+
 
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 call plug#end()
 
+"""""""""
+"""End"""
+"""""""""
 
 "" vim-airline
 " VSCodeのテーマ

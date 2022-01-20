@@ -144,7 +144,7 @@ set hlsearch
 set smartindent
 set laststatus=2
 set wildmenu
-set lines=80 columns=110
+set lines=80 columns=115
 set ruler
 set history=1000
 set encoding=utf8
@@ -424,7 +424,7 @@ nnoremap ,K <C-w>K
 nnoremap ,L <C-w>L
 nnoremap ,H <C-w>H
 nnoremap ,w :<C-u>set lines=80<CR>
-nnoremap ,e :<C-u>set columns=135<CR>
+nnoremap ,e :<C-u>set columns=200<CR>
 nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>
 "nnoremap ,<<C-w><
@@ -582,7 +582,7 @@ hi doxygenparam guifg=#fdd090 guibg=NONE guisp=NONE gui=NONE ctermfg=222 ctermbg
 hi doxygensmallspecial guifg=#fdd090 guibg=NONE guisp=NONE gui=NONE ctermfg=222 ctermbg=NONE cterm=NONE
 hi doxygenprev guifg=#fdd090 guibg=NONE guisp=NONE gui=NONE ctermfg=222 ctermbg=NONE cterm=NONE
 hi perlspecialmatch guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=176 ctermbg=238 cterm=NONE
-hi cformat guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=176 ctermbg=238 cterm=NONE
+hi cformat guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE
 hi doxygenspecialmultilinedesc guifg=#ad600b guibg=NONE guisp=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE
 hi taglisttagname guifg=#808bed guibg=NONE guisp=NONE gui=NONE ctermfg=105 ctermbg=NONE cterm=NONE
 hi doxygenbrief guifg=#fdab60 guibg=NONE guisp=NONE gui=NONE ctermfg=215 ctermbg=NONE cterm=NONE
@@ -590,5 +590,5 @@ hi user2 guifg=#7070a0 guibg=#3e3e5e guisp=#3e3e5e gui=NONE ctermfg=103 ctermbg=
 hi user1 guifg=#00ff8b guibg=#3e3e5e guisp=#3e3e5e gui=NONE ctermfg=48 ctermbg=60 cterm=NONE
 hi doxygenspecialonelinedesc guifg=#ad600b guibg=NONE guisp=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE
 hi doxygencomment guifg=#ad7b20 guibg=NONE guisp=NONE gui=NONE ctermfg=130 ctermbg=NONE cterm=NONE
-hi cspecialcharacter guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=176 ctermbg=238 cterm=NONE
+hi cspecialcharacter guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE
 

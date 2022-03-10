@@ -5,7 +5,6 @@
 
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
@@ -30,9 +29,12 @@ nmap <C-f> :NERDTreeToggle<CR>
 cnoremap init :<C-u>edit $MYVIMRC<CR>                           " init.vim呼び出し
 noremap <Space>s :source $MYVIMRC<CR>                           " init.vim読み込み
 noremap <Space>w :<C-u>w<CR>                                    " ファイル保存
+noremap <Space>q :<C-u>q<CR>                                    " ファイル終了
+noremap <Space>j :<C-u>:NERDTreeToggle<CR>                      " 
+
 
 " Insert Mode
-inoremap <silent> jj <ESC>
+inoremap <silent> jj <ESC>                                      " :<C-u>w<CR>
 inoremap <S-Space> <Esc>
 
 """"""""""""""""""""""""""""""""""""""
@@ -41,8 +43,8 @@ inoremap <S-Space> <Esc>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>
-inoremap <C-h> <Left>                                                                                                                     
-inoremap <C-l> <Right>
+inoremap <C-b> <Left>                                                                                                                     
+inoremap <C-f> <Right>
 inoremap <C-k> <Up>                          
 inoremap <C-j> <Down>
 
@@ -195,7 +197,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " アイコンに色をつける
-Plug 'lambdalisue/glyphpalette.vim'
+" Plug 'lambdalisue/glyphpalette.vim'
 
 "" git
 " diffを表示する
@@ -236,6 +238,25 @@ Plug 'OmniSharp/omnisharp-vim'
 
 
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
+
+
+"2022/03/10""
+Plug 'Shougo/neosnippet-snippets'
+Plug 'othree/html5.vim'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'othree/yajs.vim'
+Plug 'mattn/emmet-vim'
+Plug 'prettier/vim-prettier'
+Plug 'pangloss/vim-javascript'
+Plug 'othree/es.next.syntax.vim'
+Plug 'othree/javascript-libraries-syntax.vim'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'easymotion/vim-easymotion'
+Plug 'mxw/vim-jsx'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
+Plug 'cocopon/iceberg.vim'
+
 call plug#end()
 
 """""""""
@@ -457,7 +478,7 @@ if version > 580
 endif
 
 set t_Co=256
-let g:colors_name = "BusyBee"
+"let g:colors_name = "BusyBee"
 
 "hi IncSearch -- no settings --
 "hi WildMenu -- no settings --
@@ -593,12 +614,6 @@ hi doxygencomment guifg=#ad7b20 guibg=NONE guisp=NONE gui=NONE ctermfg=130 cterm
 hi cspecialcharacter guifg=#c080d0 guibg=#404040 guisp=#404040 gui=NONE ctermfg=170 ctermbg=NONE cterm=NONE
 
 
-
-
-
-
-
-
 " Anywhere SID.
 function! s:SID_PREFIX()
   return matchstr(expand('<sfile>'), '<SNR>\d\+_\zeSID_PREFIX$')
@@ -635,8 +650,8 @@ for n in range(1, 9)
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
-map <silent> [Tag]c :tablast <bar> tabnew<CR>
-" tc 新しいタブを一番右に作る
+map <silent> [Tag]b :tablast <bar> tabnew<CR>
+" tb 新しいタブを一番右に作る
 map <silent> [Tag]x :tabclose<CR>
 " tx タブを閉じる
 map <silent> [Tag]n :tabnext<CR>
@@ -650,3 +665,21 @@ nnoremap <C-k> K
 nnoremap J 10<Down>
 " 10行上移動
 nnoremap K 10<Up>
+" html 閉じタグ補完<>
+augroup MyXML
+    autocmd!
+    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
+augroup END
+" easymotion \  バックスラッシュ1回
+map <C-j> <Plug>(easymotion-prefix)
+"
+" js 閉じタグ補完<>
+"augroup MyXML
+"    autocmd!
+"    autocmd Filetype javascript inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
+"augroup END
+
+" js 拡張子でも有効にする
+let g:jsx_ext_required = 0
+" @jsx React.DOM プラグマがある場合のみ有効にする
+let g:jsx_pragma_required = 1

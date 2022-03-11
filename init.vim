@@ -271,6 +271,8 @@ Plug 'alvan/vim-closetag'
 
 
 
+
+
 call plug#end()
 
 "html閉じタグ<>自動補完
@@ -727,3 +729,10 @@ let g:skip_loading_mswin        = 1
 inoremap <C-j> <esc>
 
 set ambiwidth=single
+
+""ファイラdefx.nvim設定
+"nnoremap <silent>sf :<C-u>Defx -listed -resume
+"      \ -columns=indent:mark:icon:icons:filename:git:size
+"      \ -buffer-name=tab`tabpagenr()`
+"      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+"nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>

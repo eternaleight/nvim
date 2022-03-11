@@ -165,7 +165,6 @@ set backspace=indent,eol,start  " バックスペースを有効にする
 set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
 
 " VSCodeライクなカラースキームにする
-colorscheme codedark
 
 
 "" キーマップ
@@ -197,7 +196,7 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
 " アイコンに色をつける
-" Plug 'lambdalisue/glyphpalette.vim'
+"Plug 'lambdalisue/glyph-palette.vim'
 
 "" git
 " diffを表示する
@@ -230,7 +229,7 @@ Plug 'uguu-org/vim-matrix-screensaver'
 Plug 'justmao945/vim-clang'
 
 "カラーテーマ　ネブカドネザル"
-"Plug 'azumakuniyuki/vim-colorschemes'
+Plug 'azumakuniyuki/vim-colorschemes'
 
 "c# plugin"
 Plug 'OmniSharp/omnisharp-vim'
@@ -256,6 +255,7 @@ Plug 'mxw/vim-jsx'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 Plug 'cocopon/iceberg.vim'
+Plug 'rafi/awesome-vim-colorschemes'
 
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -315,11 +315,11 @@ nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " アイコンを表示する
 let g:fern#renderer = 'nerdfont'
 " アイコンに色をつける
-augroup my-glyph-palette
-  autocmd! *
-  autocmd FileType fern call glyph_palette#apply()
-  autocmd FileType nerdtree,startify call glyph_palette#apply()
-augroup END
+"augroup my-glyph-palette
+"  autocmd! *
+"  autocmd FileType fern call glyph_palette#apply()
+"  autocmd FileType nerdtree,startify call glyph_palette#apply()
+"augroup END
 
 
 "" git操作
@@ -705,6 +705,8 @@ let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
 
 colorscheme iceberg
+colorscheme 256_noir
+colorscheme sunbather
 
 let g:did_install_default_menus = 1
 let g:did_install_syntax_menu   = 1
@@ -736,3 +738,6 @@ set ambiwidth=single
 "      \ -buffer-name=tab`tabpagenr()`
 "      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 "nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
+"bg-color
+hi Normal guifg=#e2e2e5 guibg=#202020 guisp=#202020 gui=NONE ctermfg=254 ctermbg=234 cterm=NONE

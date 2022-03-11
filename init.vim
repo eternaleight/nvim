@@ -34,8 +34,8 @@ noremap <Space>j :<C-u>:NERDTreeToggle<CR>                      "
 
 
 " Insert Mode
-inoremap <silent> jj <ESC>                                      " :<C-u>w<CR>
-inoremap <S-Space> <Esc>
+inoremap <silent> jj <ESC> 
+"inoremap <S-Space> <Esc>
 
 """"""""""""""""""""""""""""""""""""""
 "":<C-u>w<CR>:" InsertMode抜けて保存""
@@ -65,94 +65,94 @@ set tabstop=2                                                   " tabは半角2�
 set shiftwidth=2                                                " tabの幅
 
 
-" ------------------------------------------------------------
-" dein.vim set up
-" ------------------------------------------------------------
-if &compatible
-  set nocompatible               " Be iMproved
-endif
-
-" Required:
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-" Required:
-if dein#load_state('~/.vim/dein')
-  call dein#begin('~/.vim/dein')
-
-  " Let dein manage dein
-  " Required:
-  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
-
-  " Add or remove your plugins here like this:
-  "call dein#add('Shougo/neosnippet.vim')
-  "call dein#add('Shougo/neosnippet-snippets')
-
-  " Required:
-  call dein#end()
-  call dein#save_state()
-endif      
-
-" Required:
-filetype plugin indent on
-syntax enable
-
-" If you want to install not installed plugins on startup.
-"if dein#check_install()
-"  call dein#install()
+"" ------------------------------------------------------------
+"" dein.vim set up
+"" ------------------------------------------------------------
+"if &compatible
+"  set nocompatible               " Be iMproved
 "endif
-
-
-if &compatible    
-  set nocompatible               " Be iMproved    
-endif    
-
-" Pluginディレクトリのパス    
-let s:dein_dir = expand('~/.vim/dein')    
-" dein.vimのパス    
-let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'    
-" tomlのディレクトリへのパス    
-let s:toml_dir = expand('~/.config/nvim')    
- 
-" Required:    
-execute 'set runtimepath^=' . s:dein_repo_dir    
-
-" Required:    
-if dein#load_state(s:dein_dir)    
-  call dein#begin(s:dein_dir)    
-
-  " 起動時に読み込むプラグイン群のtoml    
-  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-
-  " 利用時に読み込むプラグインのtoml
-  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-
-  " Required:               
-  call dein#end()           
-  call dein#save_state()    
-endif                        
-
-" Required:                  
-filetype plugin indent on                                   
-
-" If you want to install not installed plugins on startup.    
-if dein#check_install()                                       
-  call dein#install()      
-endif
-
-"set number
-set guifont=DroidSansMono\ Nerd\ Font\ 13
-set guifontwide=DroidSansMono\ Nerd\ Font\ 13
-set hlsearch
-set smartindent
-set laststatus=2
-set wildmenu
-set lines=80 columns=115
-set ruler
-set history=1000
-set encoding=utf8
-syntax enable
-
-
+"
+"" Required:
+"set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+"
+"" Required:
+"if dein#load_state('~/.vim/dein')
+"  call dein#begin('~/.vim/dein')
+"
+"  " Let dein manage dein
+"  " Required:
+"  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
+"
+"  " Add or remove your plugins here like this:
+"  "call dein#add('Shougo/neosnippet.vim')
+"  "call dein#add('Shougo/neosnippet-snippets')
+"
+"  " Required:
+"  call dein#end()
+"  call dein#save_state()
+"endif      
+"
+"" Required:
+"filetype plugin indent on
+"syntax enable
+"
+"" If you want to install not installed plugins on startup.
+""if dein#check_install()
+""  call dein#install()
+""endif
+"
+"
+"if &compatible    
+"  set nocompatible               " Be iMproved    
+"endif    
+"
+"" Pluginディレクトリのパス    
+"let s:dein_dir = expand('~/.vim/dein')    
+"" dein.vimのパス    
+"let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'    
+"" tomlのディレクトリへのパス    
+"let s:toml_dir = expand('~/.config/nvim')    
+" 
+"" Required:    
+"execute 'set runtimepath^=' . s:dein_repo_dir    
+"
+"" Required:    
+"if dein#load_state(s:dein_dir)    
+"  call dein#begin(s:dein_dir)    
+"
+"  " 起動時に読み込むプラグイン群のtoml    
+"  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+"
+"  " 利用時に読み込むプラグインのtoml
+"  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+"
+"  " Required:               
+"  call dein#end()           
+"  call dein#save_state()    
+"endif                        
+"
+"" Required:                  
+"filetype plugin indent on                                   
+"
+"" If you want to install not installed plugins on startup.    
+"if dein#check_install()                                       
+"  call dein#install()      
+"endif
+"
+""set number
+"set guifont=DroidSansMono\ Nerd\ Font\ 13
+"set guifontwide=DroidSansMono\ Nerd\ Font\ 13
+"set hlsearch
+"set smartindent
+"set laststatus=2
+"set wildmenu
+"set lines=80 columns=115
+"set ruler
+"set history=1000
+"set encoding=utf8
+"syntax enable
+"
+"
 """"""""
 "-2022-"
 """"""""
@@ -257,7 +257,24 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 Plug 'cocopon/iceberg.vim'
 
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+
+
+Plug 'mattn/emmet-vim'
+Plug 'Shougo/neocomplete.vim'
+Plug 'alvan/vim-closetag'
+
+
+
 call plug#end()
+
+"html閉じタグ<>自動補完
+let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 """""""""
 """End"""
@@ -429,6 +446,7 @@ nnoremap ,t :<C-u>QuickRun<CR>
 "/// コメントアウト色 設定
 hi Comment ctermfg=gray
 "/// :so $VIMRUNTIME/syntax/colortest.vim カラー表                                                                                     
+
 
 
 " ウィンドウ分割を楽にする設定
@@ -666,10 +684,10 @@ nnoremap J 10<Down>
 " 10行上移動
 nnoremap K 10<Up>
 " html 閉じタグ補完<>
-augroup MyXML
-    autocmd!
-    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
-augroup END
+"augroup MyXML
+"    autocmd!
+"    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
+"augroup END
 " easymotion \  バックスラッシュ1回
 map <C-j> <Plug>(easymotion-prefix)
 "
@@ -683,3 +701,29 @@ map <C-j> <Plug>(easymotion-prefix)
 let g:jsx_ext_required = 0
 " @jsx React.DOM プラグマがある場合のみ有効にする
 let g:jsx_pragma_required = 1
+
+colorscheme iceberg
+
+let g:did_install_default_menus = 1
+let g:did_install_syntax_menu   = 1
+let g:did_indent_on             = 1
+let g:did_load_filetypes        = 1
+let g:did_load_ftplugin         = 1
+let g:loaded_2html_plugin       = 1
+let g:loaded_gzip               = 1
+let g:loaded_man                = 1
+let g:loaded_matchit            = 1
+let g:loaded_matchparen         = 1
+let g:loaded_netrwPlugin        = 1
+let g:loaded_remote_plugins     = 1
+let g:loaded_shada_plugin       = 1
+let g:loaded_spellfile_plugin   = 1
+let g:loaded_tarPlugin          = 1
+let g:loaded_tutor_mode_plugin  = 1
+let g:loaded_zipPlugin          = 1
+let g:skip_loading_mswin        = 1
+
+"esc
+inoremap <C-j> <esc>
+
+set ambiwidth=single

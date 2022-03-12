@@ -1,45 +1,37 @@
 """""""""""""""
-"-nvim config-"
+"-nvim cnfig-"
 """""""""""""""
-
-
-call plug#begin('~/.config/nvim/plugged')
-
-Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
-Plug 'higashi000/dps-kakkonan'
-
-call plug#end()
  
-" NERDTree SETTINGS
-"
-nmap <C-f> :NERDTreeToggle<CR>
-
-" Airline SETTINGS
-"""let g:airline_powerline_fonts = 1
-"""let g:airline#extensions#tabline#enabled = 1
-"""nmap <C-p> <Plug>AirlineSelectPrevTab
-"""nmap <C-n> <Plug>AirlineSelectNextTaball plug#end()
-"""let mapleader = ","
 
 "  key bind
 " ------------------------------------------------------------
 " Normal Mode
-cnoremap init :<C-u>edit $MYVIMRC<CR>                           " init.vim呼び出し
-noremap <Space>s :source $MYVIMRC<CR>                           " init.vim読み込み
-noremap <Space>w :<C-u>w<CR>                                    " ファイル保存
-noremap <Space>q :<C-u>q<CR>                                    " ファイル終了
-noremap <Space>j :<C-u>:NERDTreeToggle<CR>                      " 
+ 
+" init.vim呼び出し
+cnoremap init :<C-u>edit $MYVIMRC<CR>                           
+" init.vim読み込み
+noremap <Space>s :source $MYVIMRC<CR>                           
+" ファイル保存
+noremap <Space>w :<C-u>w<CR>                                    
+" ファイル終了
+noremap <Space>q :<C-u>q<CR>                                    
+" nerdtree開く
+noremap <Space>j :<C-u>:NERDTreeToggle<CR>                       
+" nerdtree nj キーマップ無効化
+" noremap nj <Nop>                       
 
-
-" Insert Mode
-inoremap <silent> jj <ESC> 
-"inoremap <S-Space> <Esc>
+" NERDTree SETTINGS
+nmap <C-f> :NERDTreeToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""
 "":<C-u>w<CR>:" InsertMode抜けて保存""
 """"""""""""""""""""""""""""""""""""""
+
+" ------------------------------------------------------------
+" Insert Mode
+
+inoremap <silent> jj <ESC> 
+"inoremap <S-Space> <Esc>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>
@@ -48,7 +40,9 @@ inoremap <C-f> <Right>
 inoremap <C-k> <Up>                          
 inoremap <C-j> <Down>
 
-" encode setting                                                                                                                                     
+" ------------------------------------------------------------
+" encode setting
+
 set encoding=utf-8
 " edita setting
 set number                                                      " 行番号表示
@@ -64,6 +58,7 @@ set expandtab                                                   " tabを複数�
 set tabstop=2                                                   " tabは半角2文字
 set shiftwidth=2                                                " tabの幅
 
+" ------------------------------------------------------------
 
 "" ------------------------------------------------------------
 "" dein.vim set up
@@ -164,9 +159,6 @@ set encoding=UTF-8
 set backspace=indent,eol,start  " バックスペースを有効にする
 set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
 
-" VSCodeライクなカラースキームにする
-
-
 "" キーマップ
 " タブを作成する
 nnoremap tc :tabnew<CR>
@@ -186,7 +178,6 @@ call plug#begin('~/.config/nvim/plugged')
 "" vim-airline
 " ステータスラインを表示する
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tomasiser/vim-code-dark'
 "" fern.vim
 Plug 'lambdalisue/fern.vim'
@@ -210,16 +201,12 @@ Plug 'tpope/vim-rhubarb'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 " PLUGIN SETTINGS
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-commentary'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 
 " Or build from source code by using yarn: https://yarnpkg.com
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'yarn install --frozen-lockfile'}
 Plug 'cohama/lexima.vim'
 
 "matrix"
@@ -235,11 +222,6 @@ Plug 'azumakuniyuki/vim-colorschemes'
 Plug 'OmniSharp/omnisharp-vim'
 
 
-
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
-
-
-"2022/03/10""
 Plug 'Shougo/neosnippet-snippets'
 Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
@@ -256,6 +238,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
 Plug 'cocopon/iceberg.vim'
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'higashi000/dps-kakkonan'
 
 Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
@@ -271,12 +254,9 @@ Plug 'alvan/vim-closetag'
 
 
 
-
-
 call plug#end()
 
-"html閉じタグ<>自動補完
-let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
+"html閉じタグ<>自動補完 let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 """""""""
 """End"""
@@ -381,31 +361,31 @@ nnoremap fh :History<CR>
 " コミット履歴検索を開く
 nnoremap fc :Commits<CR>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""new""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""モード  再割当無し  再割当有り
-""ノーマルモード＋ビジュアルモード  noremap map
-""コマンドラインモード＋インサートモード  noremap!  map!
-""ノーマルモード  nnoremap  nmap
-""ビジュアル(選択)モード  vnoremap  vmap
-""コマンドラインモード  cnoremap  cmap
-""インサート(挿入)モード  inoremap  imap
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""new""
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"""モード  再割当無し  再割当有り
+"""ノーマルモード＋ビジュアルモード  noremap map
+"""コマンドラインモード＋インサートモード  noremap!  map!
+"""ノーマルモード  nnoremap  nmap
+"""ビジュアル(選択)モード  vnoremap  vmap
+"""コマンドラインモード  cnoremap  cmap
+"""インサート(挿入)モード  inoremap  imap
+""
+""コマンド名([n/v/c/i][nore]map]) <オプション> ユーザーが入力する操作 Vimが解釈する操作
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
-"コマンド名([n/v/c/i][nore]map]) <オプション> ユーザーが入力する操作 Vimが解釈する操作
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-"検索文字列のハイライト解除                                                                             
+""検索文字列のハイライト解除                                                                             
 nnoremap  <C-c> :<C-u>nohlsearch<cr><Esc>
-
-
-"検索語が画面の真ん中に来るようにする
-nmap n nzz 
-nmap N Nzz 
-nmap * *zz 
-nmap # #zz 
-nmap g* g*zz 
-nmap g# g#zz 
+"
+"
+""検索語が画面の真ん中に来るようにする
+noremap n nhzz 
+noremap N Nhzz 
+"nmap * *zz 
+"nmap # #zz 
+"nmap g* g*zz 
+"nmap g# g#zz 
 
 
 
@@ -445,15 +425,11 @@ let g:airline_powerline_fonts = 1
 "/// java QuickRun ショートカット
 nnoremap ,t :<C-u>QuickRun<CR>
 
-"/// コメントアウト色 設定
-hi Comment ctermfg=gray
-"/// :so $VIMRUNTIME/syntax/colortest.vim カラー表                                                                                     
-
 
 
 " ウィンドウ分割を楽にする設定
-nnoremap ,f :<C-u>sp<CR>
-nnoremap ,v :<C-u>vs<CR>
+nnoremap <C-w>- :<C-u>sp<CR>
+nnoremap <C-w>= :<C-u>vs<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,j <C-w>j
@@ -509,7 +485,7 @@ set t_Co=256
 "hi DiffText -- no settings --
 "hi ErrorMsg -- no settings --
 "hi Ignore -- no settings --
-hi Normal guifg=#e2e2e5 guibg=#202020 guisp=#202020 gui=NONE ctermfg=254 ctermbg=234 cterm=NONE
+"i Normal guifg=#e2e2e5 guibg=#202020 guisp=#202020 gui=NONE ctermfg=254 ctermbg=234 cterm=NONE
 "hi CTagsImport -- no settings --
 "hi Search -- no settings --
 "hi CTagsGlobalVariable -- no settings --
@@ -683,6 +659,10 @@ map <silent> [Tag]p :tabprevious<CR>
 nnoremap <C-k> K
 " 10行下移動
 nnoremap J 10<Down>
+" 10行左移動
+nnoremap H 15<Left>
+" 10行右移
+nnoremap L 15<Right>
 " 10行上移動
 nnoremap K 10<Up>
 " html 閉じタグ補完<>
@@ -704,8 +684,10 @@ let g:jsx_ext_required = 0
 " @jsx React.DOM プラグマがある場合のみ有効にする
 let g:jsx_pragma_required = 1
 
+"colorscheme
 colorscheme iceberg
 colorscheme 256_noir
+"default
 colorscheme sunbather
 
 let g:did_install_default_menus = 1

@@ -1,2 +1,2 @@
 # nvim
-<img width="897" alt="名称未設定2113" src="https://user-images.githubusercontent.com/96198088/157967764-1bf6ec12-4981-4353-bb26-75bca89d29f7.png">
+<img width="1680" alt="名称未設定225" src="https://user-images.githubusercontent.com/96198088/157996772-363f77fb-3343-4f25-a8fd-9f62dbbff7bd.png">

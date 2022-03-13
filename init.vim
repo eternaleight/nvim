@@ -256,6 +256,7 @@ Plug 'alvan/vim-closetag'
 
 Plug 'simeji/winresizer'
 Plug 'SirVer/ultisnips'
+Plug 'tyru/caw.vim'
 
 
 call plug#end()

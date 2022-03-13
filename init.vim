@@ -254,6 +254,8 @@ Plug 'alvan/vim-closetag'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 
+Plug 'simeji/winresizer'
+
 
 call plug#end()
 

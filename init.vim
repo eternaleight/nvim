@@ -23,6 +23,8 @@ noremap <Space>j :<C-u>:NERDTreeToggle<CR>
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
 
+
+let NERDTreeWinSize=26
 """"""""""""""""""""""""""""""""""""""
 "":<C-u>w<CR>:" InsertMode抜けて保存""
 """"""""""""""""""""""""""""""""""""""
@@ -30,13 +32,15 @@ nmap <C-f> :NERDTreeToggle<CR>
 " ------------------------------------------------------------
 " Insert Mode
 
-inoremap <silent> jj <ESC> 
+inoremap <silent> jj <ESC>
+":<C-u>w<CR>
 "inoremap <S-Space> <Esc>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>
-inoremap <C-b> <Left>                                                                                                                     
+inoremap <C-b> <Left>
 inoremap <C-f> <Right>
+
 inoremap <C-k> <Up>                          
 inoremap <C-j> <Down>
 
@@ -159,15 +163,6 @@ set encoding=UTF-8
 set backspace=indent,eol,start  " バックスペースを有効にする
 set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
 
-"" キーマップ
-" タブを作成する
-nnoremap tc :tabnew<CR>
-" 前のタブを開く
-nnoremap tp :tabp<CR>
-" 次のタブを開く
-nnoremap tn :tabn<CR>
-" タブを閉じる
-nnoremap tx :tabclose<CR>
 
 """"""""""
 ""Plugin""
@@ -217,6 +212,7 @@ Plug 'justmao945/vim-clang'
 
 "カラーテーマ　ネブカドネザル"
 Plug 'azumakuniyuki/vim-colorschemes'
+Plug 'cormacrelf/vim-colors-github'
 
 "c# plugin"
 Plug 'OmniSharp/omnisharp-vim'
@@ -250,12 +246,23 @@ Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'np
 
 Plug 'mattn/emmet-vim'
 Plug 'Shougo/neocomplete.vim'
+
 Plug 'alvan/vim-closetag'
 
+  Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
+  Plug 'Shougo/defx.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
 
 
 call plug#end()
 
+"defx
+"nnoremap <silent>sf :<C-u>Defx -listed -resume
+"      \ -columns=indent:mark:icon:icons:filename:git:size
+"      \ -buffer-name=tab`tabpagenr()`
+"      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+"nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 "html閉じタグ<>自動補完 let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 """""""""
@@ -291,7 +298,7 @@ let g:airline_section_c = '%t %M'
 
 "" ferm.vim
 " ファイルツリーを表示/非表示する
-nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
+"nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " アイコンを表示する
 let g:fern#renderer = 'nerdfont'
 " アイコンに色をつける
@@ -376,7 +383,7 @@ nnoremap fc :Commits<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 ""検索文字列のハイライト解除                                                                             
-nnoremap  <C-c> :<C-u>nohlsearch<cr><Esc>
+nnoremap  <C-e> :<C-u>nohlsearch<cr><Esc>
 "
 "
 ""検索語が画面の真ん中に来るようにする
@@ -400,8 +407,7 @@ noremap N Nhzz
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
-nmap <C-p> <Plug>AirlineSelectPrevTab
-nmap <C-n> <Plug>AirlineSelectNextTab
+
 
 
 " Airline SETTINGS
@@ -430,6 +436,7 @@ nnoremap ,t :<C-u>QuickRun<CR>
 " ウィンドウ分割を楽にする設定
 nnoremap <C-w>- :<C-u>sp<CR>
 nnoremap <C-w>= :<C-u>vs<CR>
+nnoremap <C-w>x :<C-u>q<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,j <C-w>j
@@ -444,14 +451,14 @@ nnoremap ,w :<C-u>set lines=80<CR>
 nnoremap ,e :<C-u>set columns=200<CR>
 nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>
-"nnoremap ,<<C-w><
-"nnoremap ,><C-w>>
+"nnoremap <C-w>> 50<C-w>>
+"nnoremap <C-w>< 50<C-w><
 "nnoremap ,+<C-w>+
 "nnoremap ,-<C-w>-
 "タブ操作
-nnoremap st :<C-u>tabnew<CR>
-nnoremap sn gt
-nnoremap asp gT
+"nnoremap st :<C-u>tabnew<CR>
+"nnoremap sn gt
+"nnoremap asp gT
 
 " redocommand 設定
 nnoremap m <C-r>
@@ -646,14 +653,14 @@ for n in range(1, 9)
 endfor
 " t1 で1番左のタブ、t2 で1番左から2番目のタブにジャンプ
 
-map <silent> [Tag]b :tablast <bar> tabnew<CR>
 " tb 新しいタブを一番右に作る
-map <silent> [Tag]x :tabclose<CR>
+map <silent> [Tag]b :tablast <bar> tabnew<CR>
 " tx タブを閉じる
-map <silent> [Tag]n :tabnext<CR>
+map <silent> [Tag]x :tabclose<CR>
 " tn 次のタブ
-map <silent> [Tag]p :tabprevious<CR>
+map <silent> [Tag]n :tabnext<CR>
 " tp 前のタブ
+map <silent> [Tag]p :tabprevious<CR>
 "
 " 識別子ヘルプ
 nnoremap <C-k> K
@@ -671,7 +678,7 @@ nnoremap K 10<Up>
 "    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
 "augroup END
 " easymotion \  バックスラッシュ1回
-map <C-j> <Plug>(easymotion-prefix)
+map <C-l> <Plug>(easymotion-prefix)
 "
 " js 閉じタグ補完<>
 "augroup MyXML
@@ -687,8 +694,20 @@ let g:jsx_pragma_required = 1
 "colorscheme
 colorscheme iceberg
 colorscheme 256_noir
-"default
-colorscheme sunbather
+colorscheme fogbell
+colorscheme fogbell_lite
+colorscheme orbital 
+colorscheme sierra
+colorscheme snow
+colorscheme nord 
+colorscheme lucid 
+colorscheme scheakur 
+colorscheme minimalist 
+colorscheme rdark-terminal2
+
+"default"""""""""""""""
+colorscheme sunbather 
+"""""""""""""""""""""""
 
 let g:did_install_default_menus = 1
 let g:did_install_syntax_menu   = 1
@@ -723,3 +742,110 @@ set ambiwidth=single
 
 "bg-color
 hi Normal guifg=#e2e2e5 guibg=#202020 guisp=#202020 gui=NONE ctermfg=254 ctermbg=234 cterm=NONE
+
+
+"if &compatible
+"  set nocompatible
+"endif
+"set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+"if dein#load_state('~/.cache/dein')
+"  call dein#begin('~/.cache/dein')
+"  call dein#end()
+"  call dein#save_state()
+"endif
+"filetype plugin indent on
+"syntax enable
+"
+"
+" if &compatible
+"   set nocompatible
+" endif
+" set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+" if dein#load_state('~/.cache/dein')
+"   call dein#begin('~/.cache/dein')
+"   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+"   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
+"   call dein#end()
+"   call dein#save_state()
+" endif
+" filetype plugin indent on
+" syntax enable
+"
+"
+"   if &compatible
+"    set nocompatible
+"  endif
+"  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+"  if dein#load_state('~/.cache/dein')
+"    call dein#begin('~/.cache/dein')
+"    call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
+"    call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
+"    call dein#end()
+"    call dein#save_state()
+"  endif
+" if dein#check_install()
+"  call dein#install()
+" endif
+"  filetype plugin indent on
+"  syntax enable
+"
+""python2 停止
+"let g:loaded_python_provider = 0
+"
+
+"
+
+"LightLineにcoc.nvimのステータスを載せます
+"let g:lightlce
+"fline = {
+"  \'active': {
+"    \'right': [
+"      \['coc']
+"    \]
+"  \},
+"  \'component_function': {
+"    \'coc': 'coc#status'
+"  \}
+"\}
+
+"Diagnosticsの、左横のアイコンの色設定
+highlight CocErrorSign ctermfg=15 ctermbg=196
+highlight CocWarningSign ctermfg=0 ctermbg=172
+
+"以下ショートカット
+
+"ノーマルモードで
+"スペース2回でCocList
+nmap <silent> <space><space> :<C-u>CocList<cr>
+"スペースhでHover
+nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
+"スペースdfでDefinition
+nmap <silent> <space>df <Plug>(coc-definition)
+"スペースrfでReferences
+nmap <silent> <space>rf <Plug>(coc-references)
+"スペースrnでRename
+nmap <silent> <space>rn <Plug>(coc-rename)
+"スペースfmtでFormat
+nmap <silent> <space>fmt <Plug>(coc-format)
+
+"coc imprement warning 文字色
+highlight CocWarningSign ctermfg=0 ctermbg=172
+
+"" キーマップ
+" タブを作成する
+nnoremap <C-c> :tabnew<CR>
+" 前のタブを開く
+nnoremap <C-j> :tabp<CR>
+" 次のタブを開く
+nnoremap <C-k> :tabn<CR>
+" タブを閉じる
+nnoremap tx :tabclose<CR>
+
+"tab切り替え
+nmap <C-j> <Plug>AirlineSelectPrevTab
+nmap <C-k> <Plug>AirlineSelectNextTab
+
+"バッファ切り替え
+nnoremap <silent> <C-o> :bprev<CR>
+nnoremap <silent> <C-p> :bnext<CR>
+nnoremap <silent> <C-x> :bw<CR>

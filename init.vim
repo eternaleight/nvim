@@ -255,6 +255,7 @@ Plug 'alvan/vim-closetag'
   Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'simeji/winresizer'
+Plug 'SirVer/ultisnips'
 
 
 call plug#end()
@@ -855,3 +856,27 @@ nnoremap <silent> <C-p> :bnext<CR>
 nnoremap <silent> <C-x> :bw<CR>
 
 inoremap <C-c> <Esc>
+
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-n>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-p>"
+
+""" for coc.nvim
+let g:UltiSnipsExpandTrigger="<Nop>"
+let g:UltiSnipsJumpForwardTrigger="<C-n>"
+let g:UltiSnipsJumpBackwardTrigger="<C-p>"
+let g:coc_snippet_next = '<C-n>'
+let g:coc_snippet_prev = '<C-p>'
+
+"" coc.nvim
+imap <C-l> <Plug>(coc-snippets-expand)
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"

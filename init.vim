@@ -385,7 +385,7 @@ nnoremap fc :Commits<CR>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 ""検索文字列のハイライト解除                                                                             
-nnoremap  <C-e> :<C-u>nohlsearch<cr><Esc>
+nnoremap m :<C-u>nohlsearch<cr><Esc>
 "
 "
 ""検索語が画面の真ん中に来るようにする
@@ -463,7 +463,8 @@ nnoremap ,c :<C-u>set columns=80<CR>
 "nnoremap asp gT
 
 " redocommand 設定
-nnoremap m <C-r>
+"nnoremap m <C-r>
+
 nnoremap - $
 
 
@@ -818,7 +819,7 @@ highlight CocWarningSign ctermfg=0 ctermbg=172
 
 "ノーマルモードで
 "スペース2回でCocList
-nmap <silent> <space><space> :<C-u>CocList<cr>
+nmap <silent> <space>co :<C-u>CocList<cr>
 "スペースhでHover
 nmap <silent> <space>h :<C-u>call CocAction('doHover')<cr>
 "スペースdfでDefinition
@@ -832,6 +833,7 @@ nmap <silent> <space>fmt <Plug>(coc-format)
 
 "coc imprement warning 文字色
 highlight CocWarningSign ctermfg=0 ctermbg=172
+"172
 
 "" キーマップ
 " タブを作成する
@@ -851,3 +853,5 @@ nmap <C-k> <Plug>AirlineSelectNextTab
 nnoremap <silent> <C-o> :bprev<CR>
 nnoremap <silent> <C-p> :bnext<CR>
 nnoremap <silent> <C-x> :bw<CR>
+
+inoremap <C-c> <Esc>

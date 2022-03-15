@@ -6,6 +6,7 @@
 "  key bind
 " ------------------------------------------------------------
 " Normal Mode
+" ------------------------------------------------------------
  
 " init.vim呼び出し
 cnoremap init :<C-u>edit $MYVIMRC<CR>                           
@@ -16,7 +17,7 @@ noremap <Space>w :<C-u>w<CR>
 " ファイル終了
 noremap <Space>q :<C-u>q<CR>                                    
 " nerdtree開く
-noremap <Space>j :<C-u>:NERDTreeToggle<CR>                       
+"noremap <Space>j :<C-u>:NERDTreeToggle<CR>                       
 " nerdtree nj キーマップ無効化
 " noremap nj <Nop>                       
 
@@ -31,10 +32,12 @@ let NERDTreeWinSize=26
 
 " ------------------------------------------------------------
 " Insert Mode
+" ------------------------------------------------------------
 
-inoremap <silent> jj <ESC>
-":<C-u>w<CR>
-"inoremap <S-Space> <Esc>
+"esc
+"inoremap <silent> jj <ESC>
+"esc保存
+inoremap <silent> jj <ESC>:<C-u>w<CR>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>
@@ -44,8 +47,10 @@ inoremap <C-f> <Right>
 inoremap <C-k> <Up>                          
 inoremap <C-j> <Down>
 
+
 " ------------------------------------------------------------
 " encode setting
+" ------------------------------------------------------------
 
 set encoding=utf-8
 " edita setting
@@ -62,7 +67,6 @@ set expandtab                                                   " tabを複数�
 set tabstop=2                                                   " tabは半角2文字
 set shiftwidth=2                                                " tabの幅
 
-" ------------------------------------------------------------
 
 "" ------------------------------------------------------------
 "" dein.vim set up
@@ -224,9 +228,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/yajs.vim'
 Plug 'mattn/emmet-vim'
 Plug 'prettier/vim-prettier'
-Plug 'pangloss/vim-javascript'
 Plug 'othree/es.next.syntax.vim'
-Plug 'othree/javascript-libraries-syntax.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'easymotion/vim-easymotion'
 Plug 'mxw/vim-jsx'
@@ -244,19 +246,19 @@ Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
 Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
 
 
-Plug 'mattn/emmet-vim'
 Plug 'Shougo/neocomplete.vim'
 
 Plug 'alvan/vim-closetag'
 
   Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-  Plug 'Shougo/defx.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 
 Plug 'simeji/winresizer'
 Plug 'SirVer/ultisnips'
 Plug 'tyru/caw.vim'
+Plug 'Shougo/unite.vim'
+Plug 'ujihisa/unite-colorscheme'
 
 
 call plug#end()
@@ -433,7 +435,7 @@ let g:airline_powerline_fonts = 1
 "/// SPLIT BORDER SETTINGS
 
 "/// java QuickRun ショートカット
-nnoremap ,t :<C-u>QuickRun<CR>
+noremap <Space>t :<C-u>QuickRun<CR>
 
 
 
@@ -699,6 +701,7 @@ let g:jsx_pragma_required = 1
 "colorscheme
 colorscheme iceberg
 colorscheme 256_noir
+colorscheme two-firewatch
 colorscheme fogbell
 colorscheme fogbell_lite
 colorscheme orbital 
@@ -881,3 +884,6 @@ inoremap <silent><expr> <Tab>
       \ coc#refresh()
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+"emmet key
+let g:user_emmet_leader_key = '<C-e>'

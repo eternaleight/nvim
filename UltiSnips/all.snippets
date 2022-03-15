@@ -1,26 +1,41 @@
-snippet '# T' "todo annotation comment <Ctrl-l>"
-# TODO: $1
-endsnippet
-
-snippet '# A' "todo annotation comment <Ctrl-l>"
+snippet '# !DOCTYPE' "todo annotation comment <Ctrl-l>"
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+	<meta name="description" content="">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
   
 </body>
-</html> $1
+</html>
 endsnippet
 
-snippet '# R' "todo annotation comment <Ctrl-l>"
-html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,xmp{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}input,select,textarea,button{outline:none;}body{color:#000;-webkit-text-size-adjust:100%;}img{max-width:100%;}*{box-sizing: border-box;} $1
+snippet '# !DOCTYPE2' "todo annotation comment <Ctrl-l>"
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta name="viewport" content="viewport-fit=cover" />
+  <title>Document</title>
+	<meta name="description" content="" />
+</head>
+<body>
+  
+</body>
+</html>
 endsnippet
 
-snippet '! R' "todo annotation comment <Ctrl-l>"
+
+snippet '# resetcss' "todo annotation comment <Ctrl-l>"
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,xmp{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}input,select,textarea,button{outline:none;}body{color:#000;-webkit-text-size-adjust:100%;}img{max-width:100%;}*{box-sizing: border-box;}
+endsnippet
+
+snippet '# resetcss2' "todo annotation comment <Ctrl-l>"
 html {
   color:#000;background:#FFF
 }
@@ -96,5 +111,12 @@ img {
 * {
   box-sizing: border-box;
 }
- $1
+endsnippet
+
+snippet "# for" "for (i=0; i<max; i++) ..."
+for (${1:Counter}=0; $1<${2:Max}; $1++) {
+	${3:Implementetion}
+	${3:Implementetion}
+	${3:Implementetion}
+}
 endsnippet

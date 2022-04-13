@@ -3,7 +3,7 @@ snippet '# !DOCTYPE' "todo annotation comment <Ctrl-l>"
 <html lang="ja">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="style.css">
@@ -19,7 +19,7 @@ snippet '# !DOCTYPE2' "todo annotation comment <Ctrl-l>"
 <html lang="ja">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="viewport" content="viewport-fit=cover" />
   <title>Document</title>
 	<meta name="description" content="" />
@@ -119,4 +119,29 @@ for (${1:Counter}=0; $1<${2:Max}; $1++) {
 	${3:Implementetion}
 	${3:Implementetion}
 }
+endsnippet
+
+snippet "# Line" "Line"
+読み	文字
+たて 　	│ ┃
+たてひだり	┨ ┥ ┤ ┫
+たてみぎ	┣ ┠ ┝ ├
+ひだりうえ	┌ ┏
+ひだりした	└ ┗
+ふとわく	┗┻━┛ ┏┳━┓
+ほそわく	└┴─┘ ┌┬─┐
+まんなか	┼ ╋ ┿ ╂
+みぎうえ	┐ ┓
+みぎした	┘ ┛
+よこ	─ ━
+よこうえ	┻ ┷ ┸ ┴
+よこした	┳　┯ ┰ ┬
+endsnippet
+
+snippet "# space" "space"
+空白なしの行
+&thinsp;&nbsp;より狭い空白
+&nbsp;半角スペースと同じサイズの空白
+&ensp;半角スペースより少し広めの空白
+&emsp;半角スペースよりさらに広めの空白　全角スペースとほぼ同じ幅
 endsnippet

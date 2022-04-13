@@ -257,9 +257,7 @@ Plug 'SirVer/ultisnips'
 Plug 'tyru/caw.vim'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
-
-Plug 'eternaleight/bubblegum-colorscheme'
-
+Plug 'EdenEast/nightfox.nvim'
 
 
 
@@ -272,7 +270,6 @@ call plug#end()
 "      \ -buffer-name=tab`tabpagenr()`
 "      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 "nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
-"html閉じタグ<>自動補完 let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 """""""""
 """End"""
@@ -549,6 +546,8 @@ map <C-l> <Plug>(easymotion-prefix)
 "    autocmd!
 "    autocmd Filetype javascript inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
 "augroup END
+"html閉じタグ<>自動補完 
+let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 " js 拡張子でも有効にする
 let g:jsx_ext_required = 0
@@ -556,7 +555,7 @@ let g:jsx_ext_required = 0
 let g:jsx_pragma_required = 1
 
 "colorscheme
-"colorscheme iceberg
+"colorscheme sunbather 
 "colorscheme 256_noir
 "colorscheme two-firewatch
 "colorscheme fogbell
@@ -573,7 +572,7 @@ let g:jsx_pragma_required = 1
 "colorscheme bubblegum-colorscheme 
 
 "default"""""""""""""""
-colorscheme sunbather 
+colorscheme iceberg
 """""""""""""""""""""""
 
 let g:did_install_default_menus = 1
@@ -746,3 +745,6 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "emmet key
 let g:user_emmet_leader_key = '<C-e>'
+
+
+

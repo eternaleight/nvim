@@ -258,6 +258,7 @@ Plug 'tyru/caw.vim'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'EdenEast/nightfox.nvim'
+Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 
 
@@ -445,10 +446,6 @@ nnoremap <C-w>= :<C-u>vs<CR>
 nnoremap <C-w>x :<C-u>q<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
-nnoremap ,j <C-w>j
-nnoremap ,k <C-w>k
-nnoremap ,l <C-w>l
-nnoremap ,h <C-w>h
 nnoremap ,J <C-w>J
 nnoremap ,K <C-w>K
 nnoremap ,L <C-w>L
@@ -747,4 +744,12 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 let g:user_emmet_leader_key = '<C-e>'
 
 
-
+"window移動
+"window右
+nnoremap <C-h> <C-w>h
+"window左
+nnoremap <C-l> <C-w>l
+"tab右
+nnoremap <C-j> <C-w>j
+"tab左
+nnoremap <C-k> <C-w>k

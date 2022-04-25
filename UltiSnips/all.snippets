@@ -1,6 +1,6 @@
 snippet '# !DOCTYPE' "todo annotation comment <Ctrl-l>"
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,7 +16,7 @@ endsnippet
 
 snippet '# !DOCTYPE2' "todo annotation comment <Ctrl-l>"
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -144,4 +144,51 @@ snippet "# space" "space"
 &nbsp;半角スペースと同じサイズの空白
 &ensp;半角スペースより少し広めの空白
 &emsp;半角スペースよりさらに広めの空白　全角スペースとほぼ同じ幅
+endsnippet
+
+snippet "# prettier" "prettier"
+module.exports = {
+  printWidth: 100,
+  tabWidth: 2,
+  useTabs: false,
+  semi: false,
+  singleQuote: true,
+  quoteProps: "as-needed",
+  jsxSingleQuote: false,
+  trailingComma: "es5",
+  bracketSpacing: true,
+  bracketSameLine: false,
+  arrowParens: "always",
+  proseWrap: "preserve",
+  htmlWhitespaceSensitivity: "css",
+  endOfLine: "lf",
+  embeddedLanguageFormatting: "off",
+}
+endsnippet
+
+snippet '# eslint' "eslint"
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "tsx": true
+    }
+  },
+  "rules": {
+    "react/prop-types": "off",
+    "@typescript-eslint/no-empty-interface": 0,
+    "react/react-in-jsx-scope": "off"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  }
+}
 endsnippet

@@ -227,7 +227,6 @@ Plug 'othree/html5.vim'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'othree/yajs.vim'
 Plug 'mattn/emmet-vim'
-Plug 'prettier/vim-prettier'
 Plug 'othree/es.next.syntax.vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'easymotion/vim-easymotion'
@@ -258,9 +257,7 @@ Plug 'tyru/caw.vim'
 Plug 'Shougo/unite.vim'
 Plug 'ujihisa/unite-colorscheme'
 Plug 'EdenEast/nightfox.nvim'
-Plug 'prettier/vim-prettier', { 'do': 'yarn install', 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
-
-
+Plug 'prettier/vim-prettier'
 
 
 call plug#end()
@@ -443,7 +440,7 @@ noremap <Space>t :<C-u>QuickRun<CR>
 " ウィンドウ分割を楽にする設定
 nnoremap <C-w>- :<C-u>sp<CR>
 nnoremap <C-w>= :<C-u>vs<CR>
-nnoremap <C-w>x :<C-u>q<CR>
+nnoremap <C-w>x :<C-u>bd<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,J <C-w>J
@@ -753,3 +750,5 @@ nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 "tab左
 nnoremap <C-k> <C-w>k
+"window resize size
+let g:winresizer_vert_resize = 2

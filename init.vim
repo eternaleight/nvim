@@ -33,11 +33,11 @@ let NERDTreeWinSize=26
 " ------------------------------------------------------------
 " Insert Mode
 " ------------------------------------------------------------
-
 "esc
 "inoremap <silent> jj <ESC>
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
+inoremap <silent> fj <ESC>:<C-u>w<CR>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>
@@ -752,3 +752,5 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 "window resize size
 let g:winresizer_vert_resize = 2
+inoremap <C-k> <Up>
+inoremap <C-j> <Down>

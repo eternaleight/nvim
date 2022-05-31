@@ -6,10 +6,11 @@ snippet '# !DOCTYPE' "todo annotation comment <Ctrl-l>"
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Document</title>
 	<meta name="description" content="">
+  <link rel="icon" href="/favicon.ico">
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-  
+<script src="sample.js" defer></script>
 </body>
 </html>
 endsnippet
@@ -267,4 +268,100 @@ endsnippet
 snippet '# transition' "transition"
 transition: transform 3s $easeOutQuint, background-position 180s 3s linear;
 animation: blur 1.8s,name 2.8s alternate linear infinite;
+endsnippet
+
+snippet '# base' "base"
+html {
+  box-sizing: border-box;
+  font-size: 12px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  @include mq(md) {
+    font-size: 8px;
+  }
+  @include mq(sm) {
+    font-size: 8px;
+  }
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  // color: var(--c-base-text);
+  // background: var(--c-base-background);
+  word-break: break-word;
+  word-wrap: break-word;
+  // font-family: var(--font-family-base);
+}
+
+img {
+  max-width: 100%;
+}
+p,
+blockquote,
+dl,
+dd,
+dt,
+section {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+endsnippet
+
+snippet '# utilis' "utilis"
+$breakpoints: (
+  'xs': 'screen and (max-width: 400px)',
+  'sm': 'screen and (max-width: 640px)',
+  'md': 'screen and (max-width: 768px)',
+  'lg': 'screen and (max-width: 1024px)',
+  'xl': 'screen and (max-width: 1280px)',
+);
+
+@mixin mq($size) {
+  @media #{map-get($breakpoints, $size)} {
+    @content;
+  }
+}
+endsnippet
+
+snippet '# variables' "variables"
+:root {
+  // --c-base-background: #fff;
+  // /* --c-base-background: #1c1c1f; */
+  // --c-base-background-lighter: #292c34;
+  // --c-base-text: #fff;
+  // --c-gray: rgba(214, 226, 243, 0.7);
+  // --c-border: rgba(115, 125, 130, 0.4);
+  // --font-family-base: 'Helvetica Neue', Arial, 'Hiragino Kaku Gothic ProN',
+  //   'Hiragino Sans', Meiryo, sans-serif;
+  // --font-family-alphabet: system-ui, -apple-system, 'Segoe UI', Arial,
+  //   sans-serif;
+}
 endsnippet

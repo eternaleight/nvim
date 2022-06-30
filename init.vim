@@ -25,7 +25,7 @@ noremap <Space>q :<C-u>q<CR>
 nmap <C-f> :NERDTreeToggle<CR>
 
 
-let NERDTreeWinSize=26
+let NERDTreeWinSize=20
 """"""""""""""""""""""""""""""""""""""
 "":<C-u>w<CR>:" InsertMode抜けて保存""
 """"""""""""""""""""""""""""""""""""""
@@ -37,7 +37,7 @@ let NERDTreeWinSize=26
 "inoremap <silent> jj <ESC>
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
-inoremap <silent> fj <ESC>:<C-u>w<CR>
+" inoremap <silent> fj <ESC>:<C-u>w<CR>
 
 " Inset mode movekey bind
 inoremap <C-d> <BS>

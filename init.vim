@@ -25,7 +25,7 @@ noremap <Space>q :<C-u>q<CR>
 nmap <C-f> :NERDTreeToggle<CR>
 
 
-let NERDTreeWinSize=20
+let NERDTreeWinSize=18
 """"""""""""""""""""""""""""""""""""""
 "":<C-u>w<CR>:" InsertMode抜けて保存""
 """"""""""""""""""""""""""""""""""""""

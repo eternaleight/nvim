@@ -215,8 +215,8 @@ endsnippet
 snippet '# tailwind_config' "tailwind_config"
 module.exports = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx}",
-    "./src/components/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     screens: {
@@ -239,7 +239,6 @@ module.exports = {
     extend: {
       fontFamily: {
         noto: 'Noto Sans JP, sans-serif',
-        dancing: 'Dancing Script, cursive'
       },
       height: {
         "half-screen": "50vh",
@@ -251,11 +250,85 @@ module.exports = {
   },
   plugins: [],
   important: true,
-};
+}
 endsnippet
 
-snippet '# font_import' "font_import"
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Noto+Sans+JP&display=swap');
+snippet '# tailwind_content' "tailwind_content"
+'./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'
+endsnippet
+
+snippet '# Noto_Sans_JP_import' "Noto_Sans_JP_import"
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+endsnippet
+
+snippet '# Noto_Sans_JP_font' "Noto_Sans_JP_font"
+font-family: 'Noto Sans JP', sans-serif;
+endsnippet
+
+snippet '# DotGothic16_import' "DotGothic16_import"
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family');
+endsnippet
+
+snippet '# Hachi_Maru_Pop_import' "Hachi_Maru_Pop_import"
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family');
+endsnippet
+
+snippet '# Mochiy_Pop_One_import' "Mochiy_Pop_One_import"
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+One&family');
+endsnippet
+
+snippet '# Potta_One_import' "Potta_One_import"
+@import url('https://fonts.googleapis.com/css2?family=Potta+One&display=swap');
+endsnippet
+
+snippet '# Inter_import' "Inter_import"
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;800&display=swap');
+endsnippet
+
+snippet '# Inter_font' "Inter_font"
+font-family: 'Inter', sans-serif;
+endsnippet
+
+snippet '# Rubik_import' "Rubik_import"
+@import url("https://use.typekit.net/lwz3cxl.css");
+endsnippet
+
+
+snippet '# Rubik_font' "Rubik_font"
+Rubik Regular
+
+font-family: rubik, sans-serif;
+
+font-weight: 400;
+
+font-style: normal;
+
+
+Rubik Italic
+
+font-family: rubik, sans-serif;
+
+font-weight: 400;
+
+font-style: italic;
+
+
+Rubik Bold
+
+font-family: rubik, sans-serif;
+
+font-weight: 700;
+
+font-style: normal;
+
+
+Rubik Bold Italic
+
+font-family: rubik, sans-serif;
+
+font-weight: 700;
+
+font-style: italic;
 endsnippet
 
 snippet '# cubic_bezier' "cubic_bezier"
@@ -283,6 +356,19 @@ snippet '# keyframes' "keyframes"
   100% {
   }
 }
+endsnippet
+
+snippet '# ease01' "ease01"
+ease: [0.6, 0.2, 0.25, 1]
+endsnippet
+snippet '# easeInOutQuart' "easeInOutQuart"
+ease: [0.77, 0.2, 0.05, 1]
+endsnippet
+snippet '# easeInBack' "easeInBack"
+ease: [0.785, 0.135, 0.15, 0.86]
+endsnippet
+snippet '# easeOutQuint' "easeOutQuint"
+ease: [0.23, 1, 0.32, 1]
 endsnippet
 
 snippet '# transition' "transition"
@@ -318,7 +404,7 @@ body {
   // background: var(--c-base-background);
   word-break: break-word;
   word-wrap: break-word;
-  // font-family: var(--font-family-base);
+  // font-family: var(--
 }
 
 img {
@@ -388,4 +474,34 @@ endsnippet
 
 snippet '# Exec' "Exec"
 exec.Command("open", "http://localhost:8080").Start()
+endsnippet
+
+snippet  "# For_statement" "For_statement"
+import { ReactNode } from "react"
+const For = <T,>({
+  v,
+  children,
+}: {
+  v: [T, (v: T) => unknown, (v: T) => T];
+  children: (v: T, index: number) => ReactNode;
+}) => {
+  let index = 0;
+  const value: ReactNode[] = [];
+  for (let i = v[0]; v[1](i); i = v[2](i)) {
+    value.push(children(i, index++));
+  }
+  return <>{value}</>;
+};
+
+const ForTest = () => {
+  return (
+    <For v={[5, (i) => i < 10, (i) => i + 1]}>
+      {(i, index) => (
+        <button key={i}>
+          {index}番目は{i}
+        </button>
+      )}
+    </For>
+  );
+};
 endsnippet

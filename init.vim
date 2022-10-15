@@ -293,35 +293,15 @@ noremap N Nhzz
 
 " ------------------------------------------------------------
 
-
-
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
 let g:airline#extensions#tabline#enabled = 1
 
-
-
 " Airline SETTINGS
 let g:airline_powerline_fonts = 1
 
-" Esc SETTINGS
-
-" /// Enable Netrw (default file browser)
-" filetype plugin on
-" /// Netrw SETTINGS
-" let g:netwr_banner = 0
-" let g:netrw_liststyle = 3
-" let g:netrw_browse_split = 4
-" let g:netrw_winsize = 30
-" let g:netrw_sizestyle = "H"
-" let g:netrw_timefmt = "%Y/%m/%d(%a) %H:%M:%S"
-" let g:netrw_preview = 1
-
-"/// SPLIT BORDER SETTINGS
-
 "/// java QuickRun ショートカット
 noremap <Space>t :<C-u>QuickRun<CR>
-
 
 
 " ウィンドウ分割を楽にする設定
@@ -339,12 +319,11 @@ nnoremap ,e :<C-u>set columns=200<CR>
 nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>
 nnoremap - $
-
-
 noremap <Left> <Nop>
 noremap <Down> <Nop>
 noremap <Up> <Nop>
 noremap <Right> <Nop>
+
 
 
 " Anywhere SID.

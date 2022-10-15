@@ -68,93 +68,6 @@ set tabstop=2                                                   " tabは半角2�
 set shiftwidth=2                                                " tabの幅
 
 
-"" ------------------------------------------------------------
-"" dein.vim set up
-"" ------------------------------------------------------------
-"if &compatible
-"  set nocompatible               " Be iMproved
-"endif
-"
-"" Required:
-"set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-"
-"" Required:
-"if dein#load_state('~/.vim/dein')
-"  call dein#begin('~/.vim/dein')
-"
-"  " Let dein manage dein
-"  " Required:
-"  call dein#add('~/.vim/dein/repos/github.com/Shougo/dein.vim')
-"
-"  " Add or remove your plugins here like this:
-"  "call dein#add('Shougo/neosnippet.vim')
-"  "call dein#add('Shougo/neosnippet-snippets')
-"
-"  " Required:
-"  call dein#end()
-"  call dein#save_state()
-"endif      
-"
-"" Required:
-"filetype plugin indent on
-"syntax enable
-"
-"" If you want to install not installed plugins on startup.
-""if dein#check_install()
-""  call dein#install()
-""endif
-"
-"
-"if &compatible    
-"  set nocompatible               " Be iMproved    
-"endif    
-"
-"" Pluginディレクトリのパス    
-"let s:dein_dir = expand('~/.vim/dein')    
-"" dein.vimのパス    
-"let s:dein_repo_dir = s:dein_dir .  '/repos/github.com/Shougo/dein.vim'    
-"" tomlのディレクトリへのパス    
-"let s:toml_dir = expand('~/.config/nvim')    
-" 
-"" Required:    
-"execute 'set runtimepath^=' . s:dein_repo_dir    
-"
-"" Required:    
-"if dein#load_state(s:dein_dir)    
-"  call dein#begin(s:dein_dir)    
-"
-"  " 起動時に読み込むプラグイン群のtoml    
-"  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-"
-"  " 利用時に読み込むプラグインのtoml
-"  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
-"
-"  " Required:               
-"  call dein#end()           
-"  call dein#save_state()    
-"endif                        
-"
-"" Required:                  
-"filetype plugin indent on                                   
-"
-"" If you want to install not installed plugins on startup.    
-"if dein#check_install()                                       
-"  call dein#install()      
-"endif
-"
-"set guifont=DroidSansMono\ Nerd\ Font\ 13
-"set guifontwide=DroidSansMono\ Nerd\ Font\ 13
-"set hlsearch
-"set smartindent
-"set laststatus=2
-"set wildmenu
-"set lines=80 columns=115
-"set ruler
-"set history=1000
-"set encoding=utf8
-"syntax enable
-"
-"
 """"""""
 "-2022-"
 """"""""
@@ -264,12 +177,6 @@ Plug 'chase/vim-ansible-yaml'
 
 call plug#end()
 
-"defx
-"nnoremap <silent>sf :<C-u>Defx -listed -resume
-"      \ -columns=indent:mark:icon:icons:filename:git:size
-"      \ -buffer-name=tab`tabpagenr()`
-"      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-"nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 """""""""
 """End"""
@@ -289,18 +196,6 @@ let g:airline#extensions#default#layout = [
   \ ['z']
   \ ]
 let g:airline_section_c = '%t %M'
-"let g:airline_section_z = get(g:, 'airline_linecolumn_prefix', '').'%3l:%-2v'
-"let g:airline#extensions#hunks#non_zero_only = 1 " 変更がなければdiffの行数を表示しない
-"" タブラインの表示を変更する
-"" 参考: https://www.reddit.com/r/vim/comments/crs61u/best_airline_settings/
-"let g:airline#extensions#tabline#fnamemod = ':t'
-"let g:airline#extensions#tabline#show_buffers = 1
-"let g:airline#extensions#tabline#show_splits = 0
-"let g:airline#extensions#tabline#show_tabs = 1
-"let g:airline#extensions#tabline#show_tab_nr = 0
-"let g:airline#extensions#tabline#show_tab_type = 1
-"let g:airline#extensions#tabline#show_close_button = 0
-
 
 "" ferm.vim
 " ファイルツリーを表示/非表示する
@@ -374,19 +269,19 @@ nnoremap fh :History<CR>
 " コミット履歴検索を開く
 nnoremap fc :Commits<CR>
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""new""
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"""モード  再割当無し  再割当有り
-"""ノーマルモード＋ビジュアルモード  noremap map
-"""コマンドラインモード＋インサートモード  noremap!  map!
-"""ノーマルモード  nnoremap  nmap
-"""ビジュアル(選択)モード  vnoremap  vmap
-"""コマンドラインモード  cnoremap  cmap
-"""インサート(挿入)モード  inoremap  imap
-""
-""コマンド名([n/v/c/i][nore]map]) <オプション> ユーザーが入力する操作 Vimが解釈する操作
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------------------------------------------
+" new
+" ------------------------------------------------------------
+" モード  再割当無し  再割当有り
+" ノーマルモード＋ビジュアルモード  noremap map
+" コマンドラインモード＋インサートモード  noremap!  map!
+" ノーマルモード  nnoremap  nmap
+" ビジュアル(選択)モード  vnoremap  vmap
+" コマンドラインモード  cnoremap  cmap
+" インサート(挿入)モード  inoremap  imap
+"
+" コマンド名([n/v/c/i][nore]map]) <オプション> ユーザーが入力する操作 Vimが解釈する操作
+" ------------------------------------------------------------
 "
 ""検索文字列のハイライト解除                                                                             
 nnoremap m :<C-u>nohlsearch<cr><Esc>
@@ -395,18 +290,8 @@ nnoremap m :<C-u>nohlsearch<cr><Esc>
 ""検索語が画面の真ん中に来るようにする
 noremap n nhzz 
 noremap N Nhzz 
-"nmap * *zz 
-"nmap # #zz 
-"nmap g* g*zz 
-"nmap g# g#zz 
 
-
-
-
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ------------------------------------------------------------
 
 
 
@@ -453,18 +338,6 @@ nnoremap ,w :<C-u>set lines=80<CR>
 nnoremap ,e :<C-u>set columns=200<CR>
 nnoremap ,d :<C-u>set columns=115<CR>
 nnoremap ,c :<C-u>set columns=80<CR>
-"nnoremap <C-w>> 50<C-w>>
-"nnoremap <C-w>< 50<C-w><
-"nnoremap ,+<C-w>+
-"nnoremap ,-<C-w>-
-"タブ操作
-"nnoremap st :<C-u>tabnew<CR>
-"nnoremap sn gt
-"nnoremap asp gT
-
-" redocommand 設定
-"nnoremap m <C-r>
-
 nnoremap - $
 
 
@@ -529,20 +402,9 @@ nnoremap H 15<Left>
 nnoremap L 15<Right>
 " 10行上移動
 nnoremap K 10<Up>
-" html 閉じタグ補完<>
-"augroup MyXML
-"    autocmd!
-"    autocmd Filetype html inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
-"augroup END
 " easymotion \  バックスラッシュ1回
 map <C-l> <Plug>(easymotion-prefix)
-"
-" js 閉じタグ補完<>
-"augroup MyXML
-"    autocmd!
-"    autocmd Filetype javascript inoremap <buffer> </ </<C-x><C-o><ESC>F>a<CR><ESC>O
-"augroup END
-"html閉じタグ<>自動補完 
+" html閉じタグ<>自動補完
 let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
 " js 拡張子でも有効にする
@@ -550,7 +412,7 @@ let g:jsx_ext_required = 0
 " @jsx React.DOM プラグマがある場合のみ有効にする
 let g:jsx_pragma_required = 1
 
-"colorscheme
+"colorscheme"""""""""""
 "colorscheme sunbather 
 "colorscheme 256_noir
 "colorscheme two-firewatch
@@ -605,70 +467,6 @@ set ambiwidth=single
 "bg-color
 hi Normal guifg=#e2e2e5 guibg=#202020 guisp=#202020 gui=NONE ctermfg=254 ctermbg=234 cterm=NONE
 
-
-"if &compatible
-"  set nocompatible
-"endif
-"set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-"if dein#load_state('~/.cache/dein')
-"  call dein#begin('~/.cache/dein')
-"  call dein#end()
-"  call dein#save_state()
-"endif
-"filetype plugin indent on
-"syntax enable
-"
-"
-" if &compatible
-"   set nocompatible
-" endif
-" set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-" if dein#load_state('~/.cache/dein')
-"   call dein#begin('~/.cache/dein')
-"   call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-"   call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
-"   call dein#end()
-"   call dein#save_state()
-" endif
-" filetype plugin indent on
-" syntax enable
-"
-"
-"   if &compatible
-"    set nocompatible
-"  endif
-"  set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
-"  if dein#load_state('~/.cache/dein')
-"    call dein#begin('~/.cache/dein')
-"    call dein#load_toml('~/.config/nvim/dein.toml', {'lazy': 0})
-"    call dein#load_toml('~/.config/nvim/dein_lazy.toml', {'lazy': 1})
-"    call dein#end()
-"    call dein#save_state()
-"  endif
-" if dein#check_install()
-"  call dein#install()
-" endif
-"  filetype plugin indent on
-"  syntax enable
-"
-""python2 停止
-"let g:loaded_python_provider = 0
-"
-
-"
-
-"LightLineにcoc.nvimのステータスを載せます
-"let g:lightlce
-"fline = {
-"  \'active': {
-"    \'right': [
-"      \['coc']
-"    \]
-"  \},
-"  \'component_function': {
-"    \'coc': 'coc#status'
-"  \}
-"\}
 
 "Diagnosticsの、左横のアイコンの色設定
 highlight CocErrorSign ctermfg=15 ctermbg=196

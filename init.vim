@@ -142,7 +142,6 @@ set shiftwidth=2                                                " tabの幅
 "  call dein#install()      
 "endif
 "
-""set number
 "set guifont=DroidSansMono\ Nerd\ Font\ 13
 "set guifontwide=DroidSansMono\ Nerd\ Font\ 13
 "set hlsearch
@@ -162,7 +161,6 @@ set shiftwidth=2                                                " tabの幅
 
 
 "" options
-set number  " 行番号を表示する
 set encoding=UTF-8
 set backspace=indent,eol,start  " バックスペースを有効にする
 set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
@@ -259,6 +257,8 @@ Plug 'ujihisa/unite-colorscheme'
 Plug 'EdenEast/nightfox.nvim'
 Plug 'prettier/vim-prettier'
 Plug 'nikvdp/ejs-syntax'
+
+Plug 'chase/vim-ansible-yaml'
 
 
 

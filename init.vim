@@ -172,6 +172,7 @@ Plug 'prettier/vim-prettier'
 Plug 'nikvdp/ejs-syntax'
 
 Plug 'chase/vim-ansible-yaml'
+Plug 'leafOfTree/vim-vue-plugin'
 
 
 
@@ -305,9 +306,9 @@ noremap <Space>t :<C-u>QuickRun<CR>
 
 
 " ウィンドウ分割を楽にする設定
-nnoremap <C-w>- :<C-u>sp<CR>
-nnoremap <C-w>= :<C-u>vs<CR>
-nnoremap <C-w>x :<C-u>bd<CR>
+nnoremap <C-w>j :<C-u>sp<CR>
+nnoremap <C-w>k :<C-u>vs<CR>
+nnoremap <C-w>x :<C-u> :close<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,J <C-w>J

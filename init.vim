@@ -13,7 +13,7 @@ cnoremap init :<C-u>edit $MYVIMRC<CR>
 " init.vim読み込み
 noremap <Space>s :source $MYVIMRC<CR>                           
 " ファイル保存
-noremap <Space>w :<C-u>w<CR>                                    
+" noremap <Space>w :<C-u>w<CR>                                    
 " ファイル終了
 noremap <Space>q :<C-u>q<CR>                                    
 " nerdtree開く

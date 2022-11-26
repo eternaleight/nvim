@@ -23,6 +23,7 @@ noremap <Space>q :<C-u>q<CR>
 
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
+noremap <Space>f :GoFmt<CR>
 
 
 let NERDTreeWinSize=18
@@ -173,6 +174,7 @@ Plug 'nikvdp/ejs-syntax'
 
 Plug 'chase/vim-ansible-yaml'
 Plug 'leafOfTree/vim-vue-plugin'
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
 
 
 
@@ -302,7 +304,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 "/// java QuickRun ショートカット
-noremap <Space>t :<C-u>QuickRun<CR>
+noremap <Space>j :<C-u>QuickRun<CR>
 
 
 " ウィンドウ分割を楽にする設定

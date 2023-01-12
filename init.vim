@@ -536,8 +536,10 @@ nnoremap <C-k> <C-w>k
 let g:winresizer_vert_resize = 2
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 
-""ejs""""""""""""""""""""""""""""""""""""""""""
+""ejs""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.ejs set filetype=ejs
 autocmd BufNewFile,BufRead *._ejs set filetype=ejs
 

@@ -556,3 +556,11 @@ autocmd BufNewFile,BufRead * call s:DetectEjs()
 " " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 " autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
 " augroup END
+
+"neovimからクリップボードへのアクセス
+set clipboard=unnamed
+"*y クリップボードにヤンク
+:silent !pbcopy
+
+"*p クリップボードにペースト
+:r !pbpaste

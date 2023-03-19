@@ -38,6 +38,8 @@ let NERDTreeWinSize=18
 "inoremap <silent> jj <ESC>
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
+inoremap <silent> jf <ESC>:<C-u>w<CR>
+inoremap <silent> jk <ESC>:<C-u>w<CR>
 " inoremap <silent> fj <ESC>:<C-u>w<CR>
 
 " Inset mode movekey bind
@@ -176,6 +178,9 @@ Plug 'chase/vim-ansible-yaml'
 Plug 'leafOfTree/vim-vue-plugin'
 Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
 
+Plug 'skanehira/jumpcursor.vim'
+" Plug 'mattn/vim-chatgpt'
+Plug 'jackMort/ChatGPT.nvim'
 
 
 call plug#end()
@@ -308,9 +313,9 @@ noremap <Space>j :<C-u>QuickRun<CR>
 
 
 " ウィンドウ分割を楽にする設定
-nnoremap <C-w>j :<C-u>sp<CR>
-nnoremap <C-w>k :<C-u>vs<CR>
-nnoremap <C-w>x :<C-u> :close<CR>
+nnoremap <C-w>- :<C-u>sp<CR>
+nnoremap <C-w>= :<C-u>vs<CR>
+nnoremap <C-w>x :<C-u> :bw<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,J <C-w>J
@@ -385,7 +390,9 @@ nnoremap L 15<Right>
 " 10行上移動
 nnoremap K 10<Up>
 " easymotion \  バックスラッシュ1回
-map <C-l> <Plug>(easymotion-prefix)
+nmap ;j <Plug>(easymotion-prefix)
+nmap 'j <Plug>(easymotion-prefix)
+nmap [j <Plug>(jumpcursor-jump)
 " html閉じタグ<>自動補完
 let g:closetag_filenames = '*.js,*.jsx,*.html,*.xhtml,*.phtml,*.erb,*.php,*.vue'
 
@@ -491,7 +498,7 @@ nmap <C-k> <Plug>AirlineSelectNextTab
 "バッファ切り替え
 nnoremap <silent> <C-o> :bprev<CR>
 nnoremap <silent> <C-p> :bnext<CR>
-nnoremap <silent> <C-x> :bw<CR>
+nnoremap <silent> <C-x> :close<CR>
 
 inoremap <C-c> <Esc>
 
@@ -564,3 +571,12 @@ set clipboard=unnamed
 
 "*p クリップボードにペースト
 :r !pbpaste
+
+" Neovim performance settings
+set lazyredraw
+set ttyfast
+set confirm
+set clipboard+=unnamedplus
+set hidden
+set updatetime=100
+set nobackup

@@ -182,7 +182,6 @@ Plug 'skanehira/jumpcursor.vim'
 " Plug 'mattn/vim-chatgpt'
 Plug 'jackMort/ChatGPT.nvim'
 
-
 call plug#end()
 
 
@@ -315,7 +314,7 @@ noremap <Space>j :<C-u>QuickRun<CR>
 " ウィンドウ分割を楽にする設定
 nnoremap <C-w>- :<C-u>sp<CR>
 nnoremap <C-w>= :<C-u>vs<CR>
-nnoremap <C-w>x :<C-u> :bw<CR>
+nnoremap <C-w>x :<C-u> :close<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,J <C-w>J
@@ -498,7 +497,7 @@ nmap <C-k> <Plug>AirlineSelectNextTab
 "バッファ切り替え
 nnoremap <silent> <C-o> :bprev<CR>
 nnoremap <silent> <C-p> :bnext<CR>
-nnoremap <silent> <C-x> :close<CR>
+nnoremap <silent> <C-x> :bw<CR>
 
 inoremap <C-c> <Esc>
 
@@ -580,3 +579,9 @@ set clipboard+=unnamedplus
 set hidden
 set updatetime=100
 set nobackup
+
+" Coc.nvim settings
+let g:coc_global_extensions = ['coc-omnisharp']
+
+" LSP settings for C#
+autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc

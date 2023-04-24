@@ -585,3 +585,4 @@ let g:coc_global_extensions = ['coc-omnisharp']
 
 " LSP settings for C#
 autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
+

@@ -246,7 +246,7 @@ fun! FzfOmniFiles()
     :GitFiles
   endif
 endfun
-nnoremap <C-p> :call FzfOmniFiles()<CR>
+nnoremap fi :call FzfOmniFiles()<CR>
 
 " 文字列検索を開く
 " <S-?>でプレビューを表示/非表示する

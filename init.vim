@@ -1,9 +1,9 @@
 """""""""""""""
-"-nvim cnfig-"
+"-nvim config-"
 """""""""""""""
  
 
-"  key bind
+" key bind
 " ------------------------------------------------------------
 " Normal Mode
 " ------------------------------------------------------------
@@ -181,6 +181,8 @@ Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
 Plug 'skanehira/jumpcursor.vim'
 " Plug 'mattn/vim-chatgpt'
 Plug 'jackMort/ChatGPT.nvim'
+Plug 'thosakwe/vim-flutter'
+Plug 'reisub0/hot-reload.vim'
 
 call plug#end()
 
@@ -312,9 +314,9 @@ noremap <Space>j :<C-u>QuickRun<CR>
 
 
 " ウィンドウ分割を楽にする設定
-nnoremap <C-w>- :<C-u>sp<CR>
-nnoremap <C-w>= :<C-u>vs<CR>
-nnoremap <C-w>x :<C-u> :close<CR>
+nnoremap ,- :<C-u>sp<CR>
+nnoremap ,= :<C-u>vs<CR>
+nnoremap ,x :<C-u> :close<CR>
 nnoremap ,q :<C-u>q<CR>
 nnoremap ,Q :<C-u>bd<CR>
 nnoremap ,J <C-w>J
@@ -585,3 +587,6 @@ let g:coc_global_extensions = ['coc-omnisharp']
 
 " LSP settings for C#
 autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
+
+" Dartファイルに対してのみsmartindentを有効
+autocmd FileType dart setlocal smartindent

@@ -1,3 +1,5 @@
 {
-  "tailwindcss.filetypes": ["javascript","typescript", "vue"]
+  "tailwindcss.filetypes": ["javascript", "typescript", "vue"],
+  "suggest.noselect": true,
+  "coc.preferences.formatOnSaveFiletypes": ["dart"]
 }

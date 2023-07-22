@@ -183,6 +183,7 @@ Plug 'skanehira/jumpcursor.vim'
 Plug 'jackMort/ChatGPT.nvim'
 Plug 'thosakwe/vim-flutter'
 Plug 'reisub0/hot-reload.vim'
+Plug 'dart-lang/dart-vim-plugin'
 
 call plug#end()
 

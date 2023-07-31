@@ -23,8 +23,9 @@ noremap <Space>q :<C-u>q<CR>
 
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
-noremap <Space>f :GoFmt<CR>
-
+" noremap <Space>f :GoFmt<CR>
+" noremap <Space>f :ClangFormat<CR>
+noremap <Space>f :silent! !clang-format -i %<CR>
 
 let NERDTreeWinSize=18
 """"""""""""""""""""""""""""""""""""""
@@ -39,6 +40,7 @@ let NERDTreeWinSize=18
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 inoremap <silent> jf <ESC>:<C-u>w<CR>
+inoremap <silent> fj <ESC>:<C-u>w<CR>
 inoremap <silent> jk <ESC>:<C-u>w<CR>
 " inoremap <silent> fj <ESC>:<C-u>w<CR>
 
@@ -184,6 +186,7 @@ Plug 'jackMort/ChatGPT.nvim'
 Plug 'thosakwe/vim-flutter'
 Plug 'reisub0/hot-reload.vim'
 Plug 'dart-lang/dart-vim-plugin'
+" Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -477,7 +480,7 @@ nmap <silent> <space>rf <Plug>(coc-references)
 "スペースrnでRename
 nmap <silent> <space>rn <Plug>(coc-rename)
 "スペースfmtでFormat
-nmap <silent> <space>fmt <Plug>(coc-format)
+" nmap <silent> <space>fmt <Plug>(coc-format)
 
 "coc imprement warning 文字色
 highlight CocWarningSign ctermfg=0 ctermbg=172
@@ -591,3 +594,23 @@ autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " Dartファイルに対してのみsmartindentを有効
 autocmd FileType dart setlocal smartindent
+
+" ClangFormat設定
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "LLVM",
+            \ "IndentWidth" : 2,
+            \ "TabWidth" : 2,
+            \ "UseTab" : "Always",
+            \ "BreakBeforeBraces" : "Attach",
+            \ "AllowShortFunctionsOnASingleLine" : "None",
+            \ "AccessModifierOffset" : -2,
+            \ "ColumnLimit" : 0,
+            \ "SortIncludes" : "false"}
+let g:clang_format#command = 'clang-format'
+
+" C++ ClangFormat
+" 保存で現在編集しているファイルの整形
+" autocmd BufWritePost *.cpp,*.h silent! !clang-format -i %
+
+" 保存でdir内のファイル全体整形
+" autocmd BufWritePost *.cpp,*.h silent! !find . -name '*.cpp' -or -name '*.h' | xargs clang-format -i

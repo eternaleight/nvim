@@ -600,12 +600,14 @@ let g:clang_format#style_options = {
             \ "BasedOnStyle" : "LLVM",
             \ "IndentWidth" : 2,
             \ "TabWidth" : 2,
-            \ "UseTab" : "Always",
             \ "BreakBeforeBraces" : "Attach",
             \ "AllowShortFunctionsOnASingleLine" : "None",
             \ "AccessModifierOffset" : -2,
             \ "ColumnLimit" : 0,
-            \ "SortIncludes" : "false"}
+            \ "SortIncludes" : "false",
+            \ "BreakConstructorInitializersBeforeComma": "true",
+            \ "AlignOperands": "false"
+}
 let g:clang_format#command = 'clang-format'
 
 " C++ ClangFormat

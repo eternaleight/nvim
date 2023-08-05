@@ -606,8 +606,7 @@ let g:clang_format#style_options = {
             \ "ColumnLimit" : 0,
             \ "SortIncludes" : "false",
             \ "BreakConstructorInitializersBeforeComma": "true",
-            \ "AlignOperands": "false"
-}
+            \ "AlignOperands": "false"}
 let g:clang_format#command = 'clang-format'
 
 " C++ ClangFormat

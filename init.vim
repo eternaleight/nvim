@@ -187,6 +187,7 @@ Plug 'thosakwe/vim-flutter'
 Plug 'reisub0/hot-reload.vim'
 Plug 'dart-lang/dart-vim-plugin'
 " Plug 'wakatime/vim-wakatime'
+Plug 'prisma/vim-prisma'
 
 call plug#end()
 
@@ -608,6 +609,8 @@ let g:clang_format#style_options = {
             \ "BreakConstructorInitializersBeforeComma": "true",
             \ "AlignOperands": "false"}
 let g:clang_format#command = 'clang-format'
+
+noremap <Space>p :Prettier<CR>
 
 " C++ ClangFormat
 " 保存で現在編集しているファイルの整形

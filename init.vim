@@ -23,9 +23,13 @@ noremap <Space>q :<C-u>q<CR>
 
 " NERDTree SETTINGS
 nmap <C-f> :NERDTreeToggle<CR>
-" noremap <Space>f :GoFmt<CR>
 " noremap <Space>f :ClangFormat<CR>
-noremap <Space>f :silent! !clang-format -i %<CR>
+
+" noremap <Space>f :silent! !clang-format -i %<CR>
+"
+noremap <Space>p :Prettier<CR>
+noremap <Space>f :GoFmt<CR>
+
 
 let NERDTreeWinSize=18
 """"""""""""""""""""""""""""""""""""""
@@ -40,7 +44,7 @@ let NERDTreeWinSize=18
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
 inoremap <silent> jf <ESC>:<C-u>w<CR>
-inoremap <silent> fj <ESC>:<C-u>w<CR>
+" inoremap <silent> fj <ESC>:<C-u>w<CR>
 inoremap <silent> jk <ESC>:<C-u>w<CR>
 " inoremap <silent> fj <ESC>:<C-u>w<CR>
 
@@ -188,8 +192,12 @@ Plug 'reisub0/hot-reload.vim'
 Plug 'dart-lang/dart-vim-plugin'
 " Plug 'wakatime/vim-wakatime'
 Plug 'prisma/vim-prisma'
+Plug 'numToStr/Comment.nvim'
 
 call plug#end()
+
+" Somewhere after plug#end()
+lua require('Comment').setup()
 
 
 """""""""
@@ -238,8 +246,8 @@ highlight GitGutterAdd ctermfg=green
 highlight GitGutterChange ctermfg=blue
 highlight GitGutterDelete ctermfg=red
 " 該当のファイルをGitHubで開く
-nnoremap gb :Gbrowse<CR>
-vnoremap gb :Gbrowse<CR>
+" nnoremap gb :Gbrowse<CR>
+" vnoremap gb :Gbrowse<CR>
 
 
 "" fzf
@@ -591,7 +599,7 @@ set nobackup
 let g:coc_global_extensions = ['coc-omnisharp']
 
 " LSP settings for C#
-autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
+" autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
 
 " Dartファイルに対してのみsmartindentを有効
 autocmd FileType dart setlocal smartindent
@@ -609,8 +617,6 @@ let g:clang_format#style_options = {
             \ "BreakConstructorInitializersBeforeComma": "true",
             \ "AlignOperands": "false"}
 let g:clang_format#command = 'clang-format'
-
-noremap <Space>p :Prettier<CR>
 
 " C++ ClangFormat
 " 保存で現在編集しているファイルの整形

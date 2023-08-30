@@ -1,10 +1,15 @@
 {
   "tailwindcss.filetypes": ["javascript", "typescript", "vue"],
   "suggest.noselect": true,
-  "coc.preferences.formatOnSaveFiletypes": [
-    "dart"
-  ],
+  "coc.formatOnSaveFiletypes": ["dart"],
   "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/16.0.2/clangd_16.0.2/bin/clangd",
   "clangd.enabled": true,
-  "clangd.disableDiagnostics": false
+  "clangd.disableDiagnostics": false,
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    }
+  }
 }

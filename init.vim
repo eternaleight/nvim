@@ -94,142 +94,130 @@ set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
 
 call plug#begin('~/.config/nvim/plugged')
 
-"" vim-airline
-" ステータスラインを表示する
-Plug 'vim-airline/vim-airline'
-Plug 'tomasiser/vim-code-dark'
-"" fern.vim
-Plug 'lambdalisue/fern.vim'
-" diffを表示する
-Plug 'lambdalisue/fern-git-status.vim'
-" アイコンを表示する
-Plug 'lambdalisue/nerdfont.vim'
-Plug 'lambdalisue/fern-renderer-nerdfont.vim'
-" アイコンに色をつける
-"Plug 'lambdalisue/glyph-palette.vim'
-
-"" git
-" diffを表示する
-Plug 'airblade/vim-gitgutter'
-" gitコマンドを使う
-Plug 'tpope/vim-fugitive'
-" GitHubを開く
-Plug 'tpope/vim-rhubarb'
-
-"" fzf
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-" PLUGIN SETTINGS
-Plug 'tpope/vim-commentary'
-Plug 'preservim/nerdtree'
+" === UI関連 ===
+Plug 'vim-airline/vim-airline'            " ステータスラインを強化
+Plug 'tomasiser/vim-code-dark'            " カラースキーム
+Plug 'cormacrelf/vim-colors-github'       " カラースキーム
+Plug 'cocopon/iceberg.vim'                " カラースキーム
+Plug 'rafi/awesome-vim-colorschemes'      " カラースキーム
+Plug 'EdenEast/nightfox.nvim'             " カラースキーム
+Plug 'azumakuniyuki/vim-colorschemes'     " カラースキーム
+Plug 'higashi000/dps-kakkonan'            " カラースキーム
+Plug 'simeji/winresizer'                  " 画面分割サイズ調整
+Plug 'uguu-org/vim-matrix-screensaver'    " マトリックススクリーンセーバー
 Plug 'ryanoasis/vim-devicons'
-Plug 'thinca/vim-quickrun', {'on': 'QuickRun'}
 
-" Or build from source code by using yarn: https://yarnpkg.com
-Plug 'cohama/lexima.vim'
+" === ファイル管理 & サイドバー ===
+Plug 'lambdalisue/fern.vim'               " ファイルツリー
+Plug 'lambdalisue/fern-git-status.vim'    " Gitのdiff表示
+Plug 'lambdalisue/nerdfont.vim'           " アイコン表示
+Plug 'lambdalisue/fern-renderer-nerdfont.vim' " ファイルツリーのアイコンレンダリング
+Plug 'preservim/nerdtree'                 " ファイルツリー
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " ファイルツリー
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } " ファイル検索
+Plug 'junegunn/fzf.vim'                   " ファイル検索
 
-"matrix"
-Plug 'uguu-org/vim-matrix-screensaver'
+" === Git関連 ===
+Plug 'airblade/vim-gitgutter'             " Git diff表示
+Plug 'tpope/vim-fugitive'                 " Gitコマンド
+Plug 'tpope/vim-rhubarb'                  " GitHub関連機能
 
-"c/c++ コンパイラ
-Plug 'justmao945/vim-clang'
+" === コード編集ユーティリティ ===
+Plug 'tpope/vim-commentary'               " コメント操作
+Plug 'numToStr/Comment.nvim'              " コメント操作
+Plug 'cohama/lexima.vim'                  " オートクローズペア
+Plug 'easymotion/vim-easymotion'          " 移動強化
+Plug 'prettier/vim-prettier'              " コード整形
+Plug 'skanehira/jumpcursor.vim'           " ショートカット
+Plug 'jackMort/ChatGPT.nvim'              " ショートカット
 
-"カラーテーマ　ネブカドネザル"
-Plug 'azumakuniyuki/vim-colorschemes'
-Plug 'cormacrelf/vim-colors-github'
-
-"c# plugin"
-Plug 'OmniSharp/omnisharp-vim'
-
-
+" === スニペット関連 ===
 Plug 'Shougo/neosnippet-snippets'
-Plug 'othree/html5.vim'
-Plug 'hail2u/vim-css3-syntax'
-Plug 'othree/yajs.vim'
-Plug 'mattn/emmet-vim'
-Plug 'othree/es.next.syntax.vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'easymotion/vim-easymotion'
-Plug 'mxw/vim-jsx'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'}
-Plug 'cocopon/iceberg.vim'
-Plug 'rafi/awesome-vim-colorschemes'
-Plug 'higashi000/dps-kakkonan'
 
-Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }
-Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' }
+" === 実行 & テストツール ===
+Plug 'thinca/vim-quickrun'
 
+" === 言語サポート: JavaScript & TypeScript ===
+Plug 'pangloss/vim-javascript', { 'for': ['javascript', 'javascript.jsx'] }               " JavaScriptのシンタックスハイライトとインデントを強化
+Plug 'othree/yajs.vim', { 'for': ['javascript', 'javascript.jsx'] }                       " ES6以上のJavaScriptシンタックスハイライト
+Plug 'othree/es.next.syntax.vim', { 'for': ['javascript', 'javascript.jsx'] }            " 最新のJavaScriptのシンタックスサポート
+Plug 'othree/javascript-libraries-syntax.vim', { 'for': ['javascript', 'javascript.jsx'] } " 人気のあるJavaScriptライブラリのシンタックスハイライト
+Plug 'maxmellon/vim-jsx-pretty', { 'for': ['javascript', 'javascript.jsx'] }              " JSXのシンタックスハイライトとインデント
+Plug 'ternjs/tern_for_vim', { 'for': ['javascript', 'javascript.jsx'], 'do': 'npm install' } " JavaScriptのコード解析ツール
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                                          " 補完、診断、Lint、IntelliSenseのサポートを提供
+Plug 'iamcco/coc-tailwindcss',  {'do': 'yarn install --frozen-lockfile && yarn run build'} " Tailwind CSSの補完とLint
+Plug 'mxw/vim-jsx'                                                                       " JSXのシンタックスとインデントサポート
 
-Plug 'Shougo/neocomplete.vim'
-Plug 'alvan/vim-closetag'
-Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
+" === 言語サポート: HTML/CSS ===
+Plug 'othree/html5.vim'                   " HTML5のシンタックスとスニペットサポート
+Plug 'hail2u/vim-css3-syntax'             " CSS3のシンタックスハイライト
+Plug 'mattn/emmet-vim'                    " HTML/CSSのための高速な記述ツール
 
-Plug 'simeji/winresizer'
-Plug 'SirVer/ultisnips'
-Plug 'tyru/caw.vim'
-Plug 'Shougo/unite.vim'
-Plug 'ujihisa/unite-colorscheme'
-Plug 'EdenEast/nightfox.nvim'
-Plug 'prettier/vim-prettier'
-Plug 'nikvdp/ejs-syntax'
+" === 言語サポート: C/C++ ===
+Plug 'justmao945/vim-clang'               " C/C++のオートコンプリートとシンタックスチェック
 
-Plug 'chase/vim-ansible-yaml'
-Plug 'leafOfTree/vim-vue-plugin'
-Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' }
+" === 言語サポート: C# ===
+Plug 'OmniSharp/omnisharp-vim'            " C#のインテリセンスと補完
 
-Plug 'skanehira/jumpcursor.vim'
-" Plug 'mattn/vim-chatgpt'
-Plug 'jackMort/ChatGPT.nvim'
-Plug 'thosakwe/vim-flutter'
-Plug 'reisub0/hot-reload.vim'
-Plug 'dart-lang/dart-vim-plugin'
-" Plug 'wakatime/vim-wakatime'
-Plug 'prisma/vim-prisma'
-Plug 'numToStr/Comment.nvim'
+" === 言語サポート: Go ===
+Plug 'darrikonn/vim-gofmt', { 'do': ':GoUpdateBinaries' } " Go言語のフォーマッター
+
+" === 言語サポート: Dart & Flutter ===
+Plug 'thosakwe/vim-flutter', { 'for': ['dart', 'flutter'] } " FlutterのコマンドとDartのサポート
+Plug 'dart-lang/dart-vim-plugin', { 'for': 'dart' } " Dart言語のサポート
+
+" === 言語サポート: YAML & Ansible ===
+Plug 'chase/vim-ansible-yaml', { 'for': 'yaml' } " AnsibleのためのYAMLシンタックスハイライト
+
+" === 言語サポート: Vue ===
+Plug 'leafOfTree/vim-vue-plugin', { 'for': 'vue' } " Vue.jsのシンタックスハイライトとスニペット
+
+" === エディタユーティリティ ===
+Plug 'Shougo/neocomplete.vim'             " 補完機能の提供
+Plug 'alvan/vim-closetag'                 " HTML/XMLの閉じタグを自動で補完
+Plug 'simeji/winresizer'                  " ウィンドウのリサイズユーティリティ
+Plug 'tyru/caw.vim'                       " コメントの追加/削除のユーティリティ
+Plug 'skanehira/jumpcursor.vim'           " カーソルのジャンプユーティリティ
+Plug 'numToStr/Comment.nvim'              " コメントの追加/削除のユーティリティ
+
+" === エディタ拡張 ===
+Plug 'Shougo/defx.nvim', { 'do': ':UpdateRemotePlugins' } " モダンなファイルエクスプローラ
+Plug 'roxma/nvim-yarp'                    " NeovimのRPCサポート
+Plug 'roxma/vim-hug-neovim-rpc'           " NeovimのPython3 RPCサポート
+Plug 'SirVer/ultisnips'                   " スニペットエンジン
+Plug 'Shougo/unite.vim'                   " 非同期検索&表示ツール
+Plug 'ujihisa/unite-colorscheme'          " カラースキームの検索&適用ツール
+Plug 'EdenEast/nightfox.nvim'             " カラースキーム
+Plug 'prettier/vim-prettier'              " コードフォーマッター
+Plug 'nikvdp/ejs-syntax'                  " EJSのシンタックスハイライト
+Plug 'jackMort/ChatGPT.nvim'              " ChatGPTとのインタラクション
+Plug 'thosakwe/vim-flutter'               " Flutterのサポート
+Plug 'reisub0/hot-reload.vim'             " Flutterのホットリロードサポート
+Plug 'dart-lang/dart-vim-plugin'          " Dartのサポート
+Plug 'prisma/vim-prisma'                  " Prismaのサポート
 
 call plug#end()
 
 " Somewhere after plug#end()
 lua require('Comment').setup()
 
-
 """""""""
 """End"""
 """""""""
 
+
 "" vim-airline
 " VSCodeのテーマ
 let g:airline_theme = 'codedark'
-" powerlineを有効にする
-"let g:airline_powerline_fonts = 1
-" タブラインを表示する
-"let g:airline#extensions#tabline#enabled = 1
-" ステータスラインに表示する項目を変更する
-" 参考: https://original-game.com/vim-airline/
+
 let g:airline#extensions#default#layout = [
   \ [ 'a', 'b', 'c' ],
   \ ['z']
   \ ]
 let g:airline_section_c = '%t %M'
 
-"" ferm.vim
-" ファイルツリーを表示/非表示する
-"nnoremap <C-n> :Fern . -reveal=% -drawer -toggle -width=40<CR>
 " アイコンを表示する
 let g:fern#renderer = 'nerdfont'
-" アイコンに色をつける
-"augroup my-glyph-palette
-"  autocmd! *
-"  autocmd FileType fern call glyph_palette#apply()
-"  autocmd FileType nerdtree,startify call glyph_palette#apply()
-"augroup END
 
 
 "" git操作
@@ -572,11 +560,6 @@ endfunction
 
 autocmd BufNewFile,BufRead * call s:DetectEjs()
 """""""""""""""""""""""""""""""""""""""""""""""
-" augroup fmt
-" autocmd!
-" " autocmd BufWritePre,TextChanged,InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.svelte,*.yaml,*.html PrettierAsync
-" augroup END
 
 "neovimからクリップボードへのアクセス
 set clipboard=unnamed
@@ -598,24 +581,21 @@ set nobackup
 " Coc.nvim settings
 let g:coc_global_extensions = ['coc-omnisharp']
 
-" LSP settings for C#
-" autocmd FileType cs setlocal omnifunc=v:lua.vim.lsp.omnifunc
-
 " Dartファイルに対してのみsmartindentを有効
 autocmd FileType dart setlocal smartindent
 
 " ClangFormat設定
 let g:clang_format#style_options = {
-            \ "BasedOnStyle" : "LLVM",
-            \ "IndentWidth" : 2,
-            \ "TabWidth" : 2,
-            \ "BreakBeforeBraces" : "Attach",
-            \ "AllowShortFunctionsOnASingleLine" : "None",
-            \ "AccessModifierOffset" : -2,
-            \ "ColumnLimit" : 0,
-            \ "SortIncludes" : "false",
-            \ "BreakConstructorInitializersBeforeComma": "true",
-            \ "AlignOperands": "false"}
+ \ "BasedOnStyle" : "LLVM",
+ \ "IndentWidth" : 2,
+ \ "TabWidth" : 2,
+ \ "BreakBeforeBraces" : "Attach",
+ \ "AllowShortFunctionsOnASingleLine" : "None",
+ \ "AccessModifierOffset" : -2,
+ \ "ColumnLimit" : 0,
+ \ "SortIncludes" : "false",
+ \ "BreakConstructorInitializersBeforeComma": "true",
+ \ "AlignOperands": "false"}
 let g:clang_format#command = 'clang-format'
 
 " C++ ClangFormat

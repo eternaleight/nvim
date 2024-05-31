@@ -1,0 +1,3 @@
+[submodule "plugged/iceberg.vim"]
+	path = plugged/iceberg.vim
+	url = https://github.com/cocopon/iceberg.vim.git

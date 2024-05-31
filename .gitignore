@@ -1,0 +1,8 @@
+colors
+dein.toml
+lazy.toml
+plugCopy
+runtime
+plugged
+plugged/vim-quickrun
+.env

@@ -612,3 +612,9 @@ let g:clang_format#command = 'clang-format'
 autocmd BufNewFile,BufRead *.tf set filetype=terraform
 
 set shadafile=NONE
+
+" " VertSplitの色を変更する
+" highlight VertSplit cterm=NONE ctermbg=NONE ctermfg=grey guibg=NONE guifg=#555555
+"
+" " NERDTreeの縦線の色を変更する
+" autocmd FileType nerdtree highlight NERDTreeDir ctermfg=grey guifg=#555555

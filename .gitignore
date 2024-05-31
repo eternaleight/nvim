@@ -3,6 +3,6 @@ dein.toml
 lazy.toml
 plugCopy
 runtime
-# plugged
+plugged/
 plugged/vim-quickrun
 .env

@@ -43,9 +43,9 @@ let NERDTreeWinSize=18
 "inoremap <silent> jj <ESC>
 "esc保存
 inoremap <silent> jj <ESC>:<C-u>w<CR>
-inoremap <silent> jf <ESC>:<C-u>w<CR>
+inoremap <silent> jf <ESC>
 " inoremap <silent> fj <ESC>:<C-u>w<CR>
-inoremap <silent> jk <ESC>:<C-u>w<CR>
+inoremap <silent> jk <ESC>
 " inoremap <silent> fj <ESC>:<C-u>w<CR>
 
 " Inset mode movekey bind
@@ -195,6 +195,8 @@ Plug 'thosakwe/vim-flutter'               " Flutterのサポート
 Plug 'reisub0/hot-reload.vim'             " Flutterのホットリロードサポート
 Plug 'dart-lang/dart-vim-plugin'          " Dartのサポート
 Plug 'prisma/vim-prisma'                  " Prismaのサポート
+
+Plug 'hashivim/vim-terraform'
 
 call plug#end()
 
@@ -501,6 +503,7 @@ nmap <C-k> <Plug>AirlineSelectNextTab
 nnoremap <silent> <C-o> :bprev<CR>
 nnoremap <silent> <C-p> :bnext<CR>
 nnoremap <silent> <C-x> :bw<CR>
+nnoremap <silent> <C-z> :bw<CR>
 
 inoremap <C-c> <Esc>
 
@@ -604,3 +607,8 @@ let g:clang_format#command = 'clang-format'
 
 " 保存でdir内のファイル全体整形
 " autocmd BufWritePost *.cpp,*.h silent! !find . -name '*.cpp' -or -name '*.h' | xargs clang-format -i
+
+" Terraformの設定
+autocmd BufNewFile,BufRead *.tf set filetype=terraform
+
+set shadafile=NONE

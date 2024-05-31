@@ -6,10 +6,10 @@
   "clangd.enabled": true,
   "clangd.disableDiagnostics": false,
   "languageserver": {
-    "golang": {
-      "command": "gopls",
-      "rootPatterns": ["go.mod"],
-      "filetypes": ["go"]
+    "terraformls": {
+      "command": "terraform-ls",
+      "args": ["serve"],
+      "filetypes": ["terraform"]
     }
   }
 }

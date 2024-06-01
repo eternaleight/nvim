@@ -332,6 +332,10 @@ vim.api.nvim_set_keymap('', '<Down>', '<Nop>', { noremap = true })
 vim.api.nvim_set_keymap('', '<Up>', '<Nop>', { noremap = true })
 vim.api.nvim_set_keymap('', '<Right>', '<Nop>', { noremap = true })
 
+-- 縦の区切り線を無くす設定
+vim.cmd('highlight VertSplit cterm=NONE gui=NONE guibg=NONE guifg=NONE')
+vim.o.fillchars = "vert: "
+
 -- Anywhere SID.
 function SID_PREFIX()
   return vim.fn.matchstr(vim.fn.expand('<sfile>'), '<SNR>\\d\\+_\\zeSID_PREFIX$')

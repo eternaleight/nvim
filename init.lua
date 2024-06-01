@@ -302,13 +302,13 @@ function SID_PREFIX()
 end
 
 -- Set tabline.
-function my_tabline()
+_G.my_tabline = function()
   local s = ''
-  for i = 1, vim.fn.tabpagenr('$'), 1 do
+  for i = 1, vim.fn.tabpagenr('$') do
     local bufnrs = vim.fn.tabpagebuflist(i)
     local bufnr = bufnrs[vim.fn.tabpagewinnr(i) - 1] -- first window, first appears
     local no = i -- display 0-origin tabpagenr.
-    local mod = vim.fn.getbufvar(bufnr, '&modified') and '!' or ' '
+    local mod = (vim.fn.getbufvar(bufnr, '&modified') == 1) and '!' or ' '
     local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
     title = '[' .. title .. ']'
     s = s .. '%' .. i .. 'T'
@@ -320,7 +320,7 @@ function my_tabline()
   s = s .. '%#TabLineFill#%T%=%#TabLine#'
   return s
 end
-vim.o.tabline = '%!' .. SID_PREFIX() .. 'my_tabline()'
+vim.o.tabline = '%!v:lua.my_tabline()'
 vim.o.showtabline = 2 -- 常にタブラインを表示
 
 -- The prefix key.
@@ -454,7 +454,7 @@ vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>(coc-snippets-expand)', { noremap =
 
 function _G.check_back_space()
   local col = vim.fn.col('.') - 1
-  return not col or vim.fn.getline('.')[col - 1] == ' '
+  return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
 end
 vim.api.nvim_set_keymap('i', '<Tab>', [[pumvisible() ? "\<C-n>" : v:lua.check_back_space() ? "\<Tab>" : coc#refresh()]], { noremap = true, silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, silent = true, expr = true })
@@ -490,7 +490,7 @@ autocmd BufNewFile,BufRead * call s:DetectEjs()
 ]])
 
 -- neovimからクリップボードへのアクセス
-vim.o.clipboard = 'unnamed'
+vim.o.clipboard = 'unnamedplus'
 vim.cmd([[
 "*y クリップボードにヤンク
 :silent !pbcopy
@@ -503,7 +503,6 @@ vim.cmd([[
 vim.o.lazyredraw = true
 vim.o.ttyfast = true
 vim.o.confirm = true
-vim.o.clipboard = vim.o.clipboard .. 'unnamedplus'
 vim.o.hidden = true
 vim.o.updatetime = 100
 vim.o.backup = false

@@ -344,13 +344,13 @@ vim.api.nvim_set_keymap('', '[Tag]p', ':tabprevious<CR>', { noremap = true, sile
 -- 識別子ヘルプ
 vim.api.nvim_set_keymap('n', '<C-k>', 'K', { noremap = true })
 -- 10行下移動
-vim.api.nvim_set_keymap('n', 'J', '10<Down>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'J', '10j', { noremap = true })
 -- 10行左移動
-vim.api.nvim_set_keymap('n', 'H', '15<Left>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'H', '15h', { noremap = true })
 -- 10行右移動
-vim.api.nvim_set_keymap('n', 'L', '15<Right>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'L', '15l', { noremap = true })
 -- 10行上移動
-vim.api.nvim_set_keymap('n', 'K', '10<Up>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'K', '10k', { noremap = true })
 -- easymotion
 vim.api.nvim_set_keymap('n', ';j', '<Plug>(easymotion-prefix)', { noremap = false })
 vim.api.nvim_set_keymap('n', "'j", '<Plug>(easymotion-prefix)', { noremap = false })
@@ -454,7 +454,7 @@ vim.api.nvim_set_keymap('i', '<C-l>', '<Plug>(coc-snippets-expand)', { noremap =
 
 function _G.check_back_space()
   local col = vim.fn.col('.') - 1
-  return not col or vim.fn.getline('.')[col - 1]  == '\s'
+  return not col or vim.fn.getline('.')[col - 1] == ' '
 end
 vim.api.nvim_set_keymap('i', '<Tab>', [[pumvisible() ? "\<C-n>" : v:lua.check_back_space() ? "\<Tab>" : coc#refresh()]], { noremap = true, silent = true, expr = true })
 vim.api.nvim_set_keymap('i', '<S-Tab>', [[pumvisible() ? "\<C-p>" : "\<S-Tab>"]], { noremap = true, silent = true, expr = true })
@@ -540,3 +540,4 @@ vim.g.clang_format_command = 'clang-format'
 vim.cmd('autocmd BufNewFile,BufRead *.tf set filetype=terraform')
 
 vim.o.shadafile = 'NONE'
+

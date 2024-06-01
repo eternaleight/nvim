@@ -22,6 +22,42 @@ vim.api.nvim_set_keymap('n', '<Space>q', ':q<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeToggle<CR>', { noremap = true })
 -- vim.api.nvim_set_keymap('n', '<Space>f', ':ClangFormat<CR>', { noremap = true })
 
+-- Fern をトグルする関数
+function ToggleFern()
+  local fern_bufnr = nil
+
+  -- すべてのバッファをチェックして `fern://` バッファを探す
+  for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+    if vim.api.nvim_buf_is_loaded(bufnr) then
+      local bufname = vim.api.nvim_buf_get_name(bufnr)
+      if bufname:match('fern://') then
+        fern_bufnr = bufnr
+        break
+      end
+    end
+  end
+
+  if fern_bufnr then
+    -- `fern://` バッファが見つかった場合はそのウィンドウを閉じる
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+      if vim.api.nvim_win_get_buf(win) == fern_bufnr then
+        if #vim.api.nvim_tabpage_list_wins(0) > 1 then
+          vim.api.nvim_win_close(win, true)
+        else
+          vim.cmd('bdelete ' .. fern_bufnr)
+        end
+        return
+      end
+    end
+  else
+    -- `fern://` バッファが見つからない場合は新しく開く
+    vim.cmd('Fern .')
+  end
+end
+
+-- ノーマルモードで <C-b> を押すと Fern をトグル
+vim.api.nvim_set_keymap('n', '<C-b>', ':lua ToggleFern()<CR>', { noremap = true, silent = true })
+
 vim.api.nvim_set_keymap('n', '<Space>p', ':Prettier<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<Space>f', ':GoFmt<CR>', { noremap = true })
 

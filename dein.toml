@@ -1,0 +1,233 @@
+[[plugins]]
+repo = 'vim-airline/vim-airline'
+
+[[plugins]]
+repo = 'tomasiser/vim-code-dark'
+
+[[plugins]]
+repo = 'cormacrelf/vim-colors-github'
+
+[[plugins]]
+repo = 'cocopon/iceberg.vim'
+
+[[plugins]]
+repo = 'rafi/awesome-vim-colorschemes'
+
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+
+[[plugins]]
+repo = 'azumakuniyuki/vim-colorschemes'
+
+[[plugins]]
+repo = 'higashi000/dps-kakkonan'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'uguu-org/vim-matrix-screensaver'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'lambdalisue/fern.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-git-status.vim'
+
+[[plugins]]
+repo = 'lambdalisue/nerdfont.vim'
+
+[[plugins]]
+repo = 'lambdalisue/fern-renderer-nerdfont.vim'
+
+[[plugins]]
+repo = 'preservim/nerdtree'
+
+[[plugins]]
+repo = 'Shougo/defx.nvim'
+hook_add = '''
+  call dein#remote_plugins#update()
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+hook_post_update = '''
+  call fzf#install()
+'''
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'tpope/vim-rhubarb'
+
+[[plugins]]
+repo = 'tpope/vim-commentary'
+
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+
+[[plugins]]
+repo = 'cohama/lexima.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+
+[[plugins]]
+repo = 'skanehira/jumpcursor.vim'
+
+[[plugins]]
+repo = 'jackMort/ChatGPT.nvim'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'thinca/vim-quickrun'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx']
+
+[[plugins]]
+repo = 'ternjs/tern_for_vim'
+on_ft = ['javascript', 'javascript.jsx']
+hook_add = '''
+  call system('npm install')
+'''
+
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+branch = 'release'
+
+[[plugins]]
+repo = 'iamcco/coc-tailwindcss'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+
+[[plugins]]
+repo = 'othree/html5.vim'
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+
+[[plugins]]
+repo = 'mattn/emmet-vim'
+
+[[plugins]]
+repo = 'justmao945/vim-clang'
+
+[[plugins]]
+repo = 'OmniSharp/omnisharp-vim'
+
+[[plugins]]
+repo = 'darrikonn/vim-gofmt'
+hook_add = '''
+  call system('go get -u golang.org/x/tools/cmd/gofmt')
+'''
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+on_ft = ['dart', 'flutter']
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+on_ft = ['dart']
+
+[[plugins]]
+repo = 'chase/vim-ansible-yaml'
+on_ft = ['yaml']
+
+[[plugins]]
+repo = 'leafOfTree/vim-vue-plugin'
+on_ft = ['vue']
+
+[[plugins]]
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]]
+repo = 'alvan/vim-closetag'
+
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'tyru/caw.vim'
+
+[[plugins]]
+repo = 'skanehira/jumpcursor.vim'
+
+[[plugins]]
+repo = 'numToStr/Comment.nvim'
+
+[[plugins]]
+repo = 'roxma/nvim-yarp'
+
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc'
+
+[[plugins]]
+repo = 'SirVer/ultisnips'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+
+[[plugins]]
+repo = 'EdenEast/nightfox.nvim'
+
+[[plugins]]
+repo = 'prettier/vim-prettier'
+
+[[plugins]]
+repo = 'nikvdp/ejs-syntax'
+
+[[plugins]]
+repo = 'jackMort/ChatGPT.nvim'
+
+[[plugins]]
+repo = 'thosakwe/vim-flutter'
+
+[[plugins]]
+repo = 'reisub0/hot-reload.vim'
+
+[[plugins]]
+repo = 'dart-lang/dart-vim-plugin'
+
+[[plugins]]
+repo = 'prisma/vim-prisma'
+
+[[plugins]]
+repo = 'hashivim/vim-terraform'
+

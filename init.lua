@@ -589,6 +589,3 @@ vim.g.clang_format_command = 'clang-format'
 
 -- Terraformの設定
 vim.cmd('autocmd BufNewFile,BufRead *.tf set filetype=terraform')
-
-vim.o.shadafile = 'NONE'
-

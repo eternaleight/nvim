@@ -110,6 +110,7 @@ vim.call('plug#begin', '~/.config/nvim/plugged')
 
 -- === UI関連 ===
 vim.fn['plug#']('vim-airline/vim-airline') -- ステータスラインを強化
+vim.fn['plug#']('vim-airline/vim-airline-themes')
 vim.fn['plug#']('tomasiser/vim-code-dark') -- カラースキーム
 vim.fn['plug#']('cormacrelf/vim-colors-github') -- カラースキーム
 vim.fn['plug#']('cocopon/iceberg.vim') -- カラースキーム
@@ -217,8 +218,17 @@ vim.call('plug#end')
 -- Somewhere after plug#end()
 require('Comment').setup()
 
--- vim-airline
--- VSCodeのテーマ
+-- Airline設定
+-- vim.g.airline_theme = 'random'
+-- vim.g.airline_theme = 'minimalist'
+-- vim.g.airline_theme = 'transparent'
+-- vim.g.airline_theme = 'violet'
+-- vim.g.airline_theme = 'onedark'
+-- vim.g.airline_theme = 'angr'
+-- vim.g.airline_theme = 'twofirewatch'
+-- vim.g.airline_theme = 'snow_dark'
+-- vim.g.airline_theme = 'afterglow'
+-- vim.g.airline_theme = 'wombat'
 vim.g.airline_theme = 'codedark'
 
 vim.g.airline_extensions_default_layout = {

@@ -260,14 +260,14 @@ vim.api.nvim_set_keymap('n', 'fc', ':Commits<CR>', { noremap = true })
 -- インサート(挿入)モード  inoremap  imap
 
 -- 検索文字列のハイライト解除
-vim.api.nvim_set_keymap('n', 'm', ':nohlsearch<CR><Esc>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'm', ':nohlsearch<CR>', { noremap = true, silent = true })
 
 -- 検索語が画面の真ん中に来るようにする
-vim.api.nvim_set_keymap('n', 'n', 'nhzz', { noremap = true })
-vim.api.nvim_set_keymap('n', 'N', 'Nhzz', { noremap = true })
+vim.api.nvim_set_keymap('n', 'n', 'nzzzv', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', 'N', 'Nzzzv', { noremap = true, silent = true })
 
 -- NERDTree SETTINGS
-vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeToggle<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-f>', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
 vim.g.airline_extensions_tabline_enabled = 1
 
 -- Airline SETTINGS

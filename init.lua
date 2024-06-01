@@ -306,16 +306,18 @@ _G.my_tabline = function()
   local s = ''
   for i = 1, vim.fn.tabpagenr('$') do
     local bufnrs = vim.fn.tabpagebuflist(i)
-    local bufnr = bufnrs[vim.fn.tabpagewinnr(i) - 1] -- first window, first appears
-    local no = i -- display 0-origin tabpagenr.
-    local mod = (vim.fn.getbufvar(bufnr, '&modified') == 1) and '!' or ' '
-    local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
-    title = '[' .. title .. ']'
-    s = s .. '%' .. i .. 'T'
-    s = s .. '%#' .. (i == vim.fn.tabpagenr() and 'TabLineSel' or 'TabLine') .. '#'
-    s = s .. no .. ':' .. title
-    s = s .. mod
-    s = s .. '%#TabLineFill# '
+    local bufnr = bufnrs[vim.fn.tabpagewinnr(i)] -- first window, first appears
+    if bufnr and bufnr ~= -1 then
+      local no = i -- display 0-origin tabpagenr.
+      local mod = (vim.fn.getbufvar(bufnr, '&modified') == 1) and '!' or ' '
+      local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
+      title = '[' .. title .. ']'
+      s = s .. '%' .. i .. 'T'
+      s = s .. '%#' .. (i == vim.fn.tabpagenr() and 'TabLineSel' or 'TabLine') .. '#'
+      s = s .. no .. ':' .. title
+      s = s .. mod
+      s = s .. '%#TabLineFill# '
+    end
   end
   s = s .. '%#TabLineFill#%T%=%#TabLine#'
   return s

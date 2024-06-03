@@ -349,27 +349,29 @@ function SID_PREFIX()
   return vim.fn.matchstr(vim.fn.expand('<sfile>'), '<SNR>\\d\\+_\\zeSID_PREFIX$')
 end
 
--- Set tabline.
+-- タブラインのカスタム設定関数
 _G.my_tabline = function()
   local s = ''
   for i = 1, vim.fn.tabpagenr('$') do
-    local bufnrs = vim.fn.tabpagebuflist(i)
-    local bufnr = bufnrs[vim.fn.tabpagewinnr(i)] -- first window, first appears
+    local winnr = vim.fn.tabpagewinnr(i)
+    local bufnr = vim.fn.tabpagebuflist(i)[winnr]
     if bufnr and bufnr ~= -1 then
-      local no = i -- display 0-origin tabpagenr.
-      local mod = (vim.fn.getbufvar(bufnr, '&modified') == 1) and '!' or ' '
-      local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':t')
-      title = '[' .. title .. ']'
+      local title = vim.fn.fnamemodify(vim.fn.bufname(bufnr), ':~:.')
+      if title == '' then
+        title = '[No Name]'
+      end
+      local mod = (vim.fn.getbufvar(bufnr, '&modified') == 1) and '[+]' or ''
       s = s .. '%' .. i .. 'T'
       s = s .. '%#' .. (i == vim.fn.tabpagenr() and 'TabLineSel' or 'TabLine') .. '#'
-      s = s .. no .. ':' .. title
-      s = s .. mod
+      s = s .. title .. mod
       s = s .. '%#TabLineFill# '
     end
   end
   s = s .. '%#TabLineFill#%T%=%#TabLine#'
   return s
 end
+
+-- タブラインの設定
 vim.o.tabline = '%!v:lua.my_tabline()'
 vim.o.showtabline = 2 -- 常にタブラインを表示
 

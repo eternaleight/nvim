@@ -219,17 +219,15 @@ vim.call('plug#end')
 require('Comment').setup()
 
 -- Airline設定
--- vim.g.airline_theme = 'random'
--- vim.g.airline_theme = 'minimalist'
--- vim.g.airline_theme = 'transparent'
--- vim.g.airline_theme = 'violet'
--- vim.g.airline_theme = 'onedark'
 -- vim.g.airline_theme = 'angr'
--- vim.g.airline_theme = 'twofirewatch'
+-- vim.g.airline_theme = 'wombat'
+-- vim.g.airline_theme = 'onedark'
+vim.g.airline_theme = 'codedark'
 -- vim.g.airline_theme = 'snow_dark'
 -- vim.g.airline_theme = 'afterglow'
--- vim.g.airline_theme = 'wombat'
-vim.g.airline_theme = 'codedark'
+-- vim.g.airline_theme = 'minimalist'
+-- vim.g.airline_theme = 'transparent'
+-- vim.g.airline_theme = 'twofirewatch'
 
 vim.g.airline_extensions_default_layout = {
   { 'a', 'b', 'c' },

@@ -547,7 +547,7 @@ nnoremap <C-k> <C-w>k
 "window resize size
 let g:winresizer_vert_resize = 2
 
-set fillchars+=vert:\ 
+" set fillchars+=vert:\
 
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
@@ -613,3 +613,6 @@ let g:clang_format#command = 'clang-format'
 
 " Terraformの設定
 autocmd BufNewFile,BufRead *.tf set filetype=terraform
+
+" WinSeparator(旧VertSplit)の色を設定
+highlight WinSeparator ctermfg=233 ctermbg=235 guifg=#000000 guibg=#000000

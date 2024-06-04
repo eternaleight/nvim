@@ -613,5 +613,3 @@ let g:clang_format#command = 'clang-format'
 
 " Terraformの設定
 autocmd BufNewFile,BufRead *.tf set filetype=terraform
-
-set shadafile=NONE

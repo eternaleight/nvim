@@ -546,6 +546,9 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 "window resize size
 let g:winresizer_vert_resize = 2
+
+set fillchars+=vert:\ 
+
 inoremap <C-k> <Up>
 inoremap <C-j> <Down>
 inoremap <C-h> <Left>

@@ -188,7 +188,6 @@ Plug 'SirVer/ultisnips'                   " スニペットエンジン
 Plug 'Shougo/unite.vim'                   " 非同期検索&表示ツール
 Plug 'ujihisa/unite-colorscheme'          " カラースキームの検索&適用ツール
 Plug 'EdenEast/nightfox.nvim'             " カラースキーム
-Plug 'prettier/vim-prettier'              " コードフォーマッター
 Plug 'nikvdp/ejs-syntax'                  " EJSのシンタックスハイライト
 Plug 'jackMort/ChatGPT.nvim'              " ChatGPTとのインタラクション
 Plug 'thosakwe/vim-flutter'               " Flutterのサポート
@@ -532,7 +531,8 @@ inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "emmet key
-let g:user_emmet_leader_key = '<C-e>'
+" let g:user_emmet_leader_key = '<C-e>'
+imap <C-e> <Plug>(emmet-expand-abbr)
 
 
 "window移動

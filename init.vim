@@ -85,7 +85,7 @@ set shiftwidth=2                                                " tabの幅
 "" options
 set encoding=UTF-8
 set backspace=indent,eol,start  " バックスペースを有効にする
-set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
+" set updatetime=250  " 反映時間を短くする(デフォルトは4000ms)
 
 
 """"""""""

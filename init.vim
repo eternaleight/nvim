@@ -197,6 +197,18 @@ Plug 'prisma/vim-prisma'                  " Prismaのサポート
 
 Plug 'hashivim/vim-terraform'
 
+" Rust 開発用プラグイン
+Plug 'rust-lang/rust.vim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'mrcjkb/rustaceanvim'
+
+Plug 'hrsh7th/nvim-cmp'  " 補完エンジン
+Plug 'hrsh7th/cmp-nvim-lsp'  " LSP補完用のソース
+Plug 'hrsh7th/cmp-buffer'  " バッファ補完用のソース
+Plug 'hrsh7th/cmp-path'  " パス補完用のソース
+Plug 'hrsh7th/cmp-cmdline'  " コマンドライン補完用のソース
+
 call plug#end()
 
 " Somewhere after plug#end()
@@ -616,3 +628,56 @@ autocmd BufNewFile,BufRead *.tf set filetype=terraform
 
 " WinSeparator(旧VertSplit)の色を設定
 highlight WinSeparator ctermfg=233 ctermbg=235 guifg=#000000 guibg=#000000
+
+" Rustファイルを保存時に自動でフォーマット
+let g:rustfmt_autosave = 1
+
+" " RustのLSP設定
+" lua << EOF
+" require'lspconfig'.rust_analyzer.setup({
+"   on_attach = function(client, bufnr)
+"     -- キーマッピングやその他の設定をここに記述
+"   end,
+"   settings = {
+"     ["rust-analyzer"] = {
+"       cargo = { loadOutDirsFromCheck = true },
+"       procMacro = { enable = true },
+"     },
+"   }
+" })
+" EOF
+
+"cmp コード補完
+lua << EOF
+
+local cmp = require'cmp'
+
+cmp.setup({
+  snippet = {
+    expand = function(args)
+      -- スニペットエンジンの設定。例えば `vim-vsnip` を使用する場合
+      vim.fn["vsnip#anonymous"](args.body)
+    end,
+  },
+  mapping = cmp.mapping.preset.insert({
+   -- ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+   -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-n>'] = cmp.mapping.select_next_item(), -- 次の項目を選択
+    ['<C-l>'] = cmp.mapping.select_prev_item(), -- 前の項目を選択
+   -- ['<Tab>'] = cmp.mapping.select_next_item(), -- 次の項目を選択
+   -- ['<S-Tab>'] = cmp.mapping.select_prev_item(), -- 前の項目を選択
+    ['<C-o>'] = cmp.mapping.select_prev_item(), -- 前の項目を選択
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
+  }),
+  sources = cmp.config.sources({
+    { name = 'nvim_lsp' },
+    { name = 'vsnip' },
+    { name = 'buffer' },
+  })
+})
+EOF
+
+" Pmenuの背景色を変更する
+highlight Pmenu ctermbg=250 guibg=#3c3836

@@ -681,3 +681,10 @@ EOF
 
 " Pmenuの背景色を変更する
 highlight Pmenu ctermbg=250 guibg=#3c3836
+
+source ~/.config/nvim/fzf_colors.vim
+
+" Scroll down in hover window
+nnoremap <silent> <C-j> :call coc#float#scroll(1)<CR>
+" Scroll up in hover window
+nnoremap <silent> <C-k> :call coc#float#scroll(0)<CR>

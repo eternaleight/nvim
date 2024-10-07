@@ -10,6 +10,14 @@
       "command": "terraform-ls",
       "args": ["serve"],
       "filetypes": ["terraform"]
+    },
+    "rust-analyzer": {
+      "command": "rust-analyzer",
+      "filetypes": ["rust"],
+      "rootPatterns": ["Cargo.toml", "rust-project.json"],
+      "initializationOptions": {
+        "experimental": {}
+      }
     }
   }
 }

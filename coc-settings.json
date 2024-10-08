@@ -17,7 +17,33 @@
       "rootPatterns": ["Cargo.toml", "rust-project.json"],
       "initializationOptions": {
         "experimental": {}
-      }
+      },
+      "cargo": {
+        "buildScripts": {
+          "enable": true
+        },
+        "loadOutDirsFromCheck": false
+      },
+      "procMacro": {
+        "enable": false
+      },
+      "diagnostics": {
+        "disabled": ["unresolved-proc-macro"]
+      },
+      "files": {
+        "excludeDirs": ["target"]
+      },
+      "checkOnSave": {
+        "enable": false
+      },
+      "debug": {
+        "enable": false
+      },
+      "cache": {
+        "enable": true,
+        "size": 100
+      },
+      "rust-analyzer.diagnostics.disabled": ["unlinked-file"]
     }
   }
 }

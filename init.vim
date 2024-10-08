@@ -28,7 +28,11 @@ nmap <C-f> :NERDTreeToggle<CR>
 " noremap <Space>f :silent! !clang-format -i %<CR>
 "
 noremap <Space>p :Prettier<CR>
-noremap <Space>f :GoFmt<CR>
+" Goファイルに対して<Space>fで :GoFmt を実行
+autocmd FileType go nnoremap <buffer> <Space>f :GoFmt<CR>
+
+" Rustファイルに対して<Space>fで :RustFmt を実行
+autocmd FileType rust nnoremap <buffer> <Space>f :RustFmt<CR>
 
 
 let NERDTreeWinSize=18
@@ -629,8 +633,8 @@ autocmd BufNewFile,BufRead *.tf set filetype=terraform
 " WinSeparator(旧VertSplit)の色を設定
 highlight WinSeparator ctermfg=233 ctermbg=235 guifg=#000000 guibg=#000000
 
-" Rustファイルを保存時に自動でフォーマット
-let g:rustfmt_autosave = 1
+" " Rustファイルを保存時に自動でフォーマット
+" let g:rustfmt_autosave = 1
 
 " " RustのLSP設定
 " lua << EOF
@@ -688,3 +692,13 @@ source ~/.config/nvim/fzf_colors.vim
 nnoremap <silent> <C-j> :call coc#float#scroll(1)<CR>
 " Scroll up in hover window
 nnoremap <silent> <C-k> :call coc#float#scroll(0)<CR>
+
+" " QuickRunの設定
+" let g:quickrun_config = {
+"     \ 'rust': {
+"         \ 'command': 'cargo',
+"         \ 'args': ['run', '--quiet'],
+"         \ 'type': 'shell',
+"         \ 'runner': 'shell',
+"     \ },
+" \ }

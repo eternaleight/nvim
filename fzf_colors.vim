@@ -12,7 +12,7 @@ let g:fzf_colors = {
 \ 'info':    ['fg', 'PreProc'],
 \ 'border':  ['fg', 'Ignore'],
 \ 'prompt':  ['fg', 'Conditional'],
-\ 'pointer': ['fg', 'Keyword'],
+\ 'pointer': ['fg', 'Pointer2'],
 \ 'marker':  ['fg', 'Keyword'],
 \ 'spinner': ['fg', 'Label'],
 \ 'header':  ['fg', 'Comment'],

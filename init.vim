@@ -212,6 +212,7 @@ Plug 'hrsh7th/cmp-nvim-lsp'  " LSP補完用のソース
 Plug 'hrsh7th/cmp-buffer'  " バッファ補完用のソース
 Plug 'hrsh7th/cmp-path'  " パス補完用のソース
 Plug 'hrsh7th/cmp-cmdline'  " コマンドライン補完用のソース
+Plug 'hrsh7th/vim-vsnip'  " コマンドライン補完用のソース
 
 call plug#end()
 
@@ -702,3 +703,10 @@ nnoremap <silent> <C-k> :call coc#float#scroll(0)<CR>
 "         \ 'runner': 'shell',
 "     \ },
 " \ }
+"
+lua << EOF
+vim.api.nvim_set_keymap("i", "<CR>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], { noremap = true, silent = true, expr = true, replace_keycodes = false })
+EOF
+
+" let g:prettier#autoformat = 1
+" let g:prettier#autoformat_require_pragma = 0

@@ -214,6 +214,8 @@ Plug 'hrsh7th/cmp-path'  " パス補完用のソース
 Plug 'hrsh7th/cmp-cmdline'  " コマンドライン補完用のソース
 Plug 'hrsh7th/vim-vsnip'  " コマンドライン補完用のソース
 
+Plug 'skanehira/translate.vim'
+
 call plug#end()
 
 " Somewhere after plug#end()
@@ -634,6 +636,7 @@ autocmd BufNewFile,BufRead *.tf set filetype=terraform
 " WinSeparator(旧VertSplit)の色を設定
 highlight WinSeparator ctermfg=233 ctermbg=235 guifg=#000000 guibg=#000000
 
+" ----Rust----
 " " Rustファイルを保存時に自動でフォーマット
 " let g:rustfmt_autosave = 1
 
@@ -682,6 +685,29 @@ cmp.setup({
     { name = 'buffer' },
   })
 })
+EOF
+
+" vim.api.nvim_buf_set_keymap(bufnr, 'n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', bufopts)
+" vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', bufopts)
+
+" ----Go----
+" Goのgopls設定
+lua << EOF
+local lspconfig = require'lspconfig'
+
+lspconfig.gopls.setup{
+    on_attach = function(_, bufnr)
+        local bufopts = { noremap=true, silent=true }
+    end,
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+}
 EOF
 
 " Pmenuの背景色を変更する
